@@ -1,0 +1,14 @@
+
+*.sketch
+*.fig
+
+*.xd
+
+.DS_Store
+.prettierignore
+
+
+/package-lock.json
+
+
+node_modules

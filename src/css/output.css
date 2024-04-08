@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 
 /*
 ! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com
@@ -594,32 +594,32 @@ video {
   display: flex;
 }
 
-.h-5{
-  height: 1.25rem;
+.hidden{
+  display: none;
+}
+
+.h-4{
+  height: 1rem;
+}
+
+.h-44{
+  height: 11rem;
 }
 
 .h-9{
   height: 2.25rem;
 }
 
-.h-\[35rem\]{
-  height: 35rem;
-}
-
 .min-h-dvh{
   min-height: 100dvh;
-}
-
-.w-48{
-  width: 12rem;
 }
 
 .w-9{
   width: 2.25rem;
 }
 
-.max-w-5xl{
-  max-width: 64rem;
+.w-full{
+  width: 100%;
 }
 
 .flex-col{
@@ -634,12 +634,8 @@ video {
   justify-content: center;
 }
 
-.gap-3{
-  gap: 0.75rem;
-}
-
-.gap-6{
-  gap: 1.5rem;
+.gap-4{
+  gap: 1rem;
 }
 
 .rounded-full{
@@ -663,21 +659,20 @@ video {
   background-color: transparent;
 }
 
-.bg-white{
-  --tw-bg-opacity: 1;
-  background-color: hsl(0 0% 100% / var(--tw-bg-opacity));
+.bg-\[url\(\'\/src\/images\/bg-sidebar-mobile\.svg\'\)\]{
+  background-image: url('/src/images/bg-sidebar-mobile.svg');
 }
 
-.bg-\[url\(\'\/src\/images\/bg-sidebar-desktop\.svg\'\)\]{
-  background-image: url('/src/images/bg-sidebar-desktop.svg');
+.bg-cover{
+  background-size: cover;
 }
 
-.p-4{
-  padding: 1rem;
+.bg-no-repeat{
+  background-repeat: no-repeat;
 }
 
-.p-9{
-  padding: 2.25rem;
+.p-8{
+  padding: 2rem;
 }
 
 .font-ubuntu{
@@ -702,9 +697,13 @@ video {
   text-transform: uppercase;
 }
 
-.text-lightGray{
+.tracking-widest{
+  letter-spacing: 0.1em;
+}
+
+.text-coolGray{
   --tw-text-opacity: 1;
-  color: hsl(229 24% 87% / var(--tw-text-opacity));
+  color: hsl(231 11% 63% / var(--tw-text-opacity));
 }
 
 .text-white{
@@ -712,3 +711,96 @@ video {
   color: hsl(0 0% 100% / var(--tw-text-opacity));
 }
 
+.step-item-active div:first-child{
+  --tw-bg-opacity: 1;
+  background-color: hsl(0 0% 100% / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(243 100% 62% / var(--tw-text-opacity));
+}
+
+@media (min-width: 640px){
+  .sm\:flex{
+    display: flex;
+  }
+
+  .sm\:h-\[40rem\]{
+    height: 40rem;
+  }
+
+  .sm\:w-56{
+    width: 14rem;
+  }
+
+  .sm\:w-auto{
+    width: auto;
+  }
+
+  .sm\:flex-col{
+    flex-direction: column;
+  }
+
+  .sm\:items-center{
+    align-items: center;
+  }
+
+  .sm\:justify-center{
+    justify-content: center;
+  }
+
+  .sm\:gap-4{
+    gap: 1rem;
+  }
+
+  .sm\:gap-8{
+    gap: 2rem;
+  }
+
+  .sm\:rounded-lg{
+    border-radius: 0.5rem;
+  }
+
+  .sm\:bg-white{
+    --tw-bg-opacity: 1;
+    background-color: hsl(0 0% 100% / var(--tw-bg-opacity));
+  }
+
+  .sm\:bg-\[url\(\'\/src\/images\/bg-sidebar-desktop\.svg\'\)\]{
+    background-image: url('/src/images/bg-sidebar-desktop.svg');
+  }
+
+  .sm\:p-10{
+    padding: 2.5rem;
+  }
+
+  .sm\:p-4{
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1280px){
+  .xl\:w-\[80rem\]{
+    width: 80rem;
+  }
+
+  .xl\:w-\[70rem\]{
+    width: 70rem;
+  }
+
+  .xl\:w-\[75rem\]{
+    width: 75rem;
+  }
+}
+
+@media (min-width: 1536px){
+  .\32xl\:w-\[\]{
+    width: ;
+  }
+
+  .\32xl\:w-\[0rem\]{
+    width: 0rem;
+  }
+
+  .\32xl\:w-\[80rem\]{
+    width: 80rem;
+  }
+}

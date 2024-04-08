@@ -16,6 +16,10 @@ module.exports = {
       alabaster: "hsl(231, 100%, 99%)",
       white: "hsl(0, 0%, 100%)",
     },
+    container: {
+      center: false
+    },
+
     fontFamily: {
       ubuntu: ["Ubuntu", "sans-serif"],
       sans: ["Graphik", "sans-serif"],

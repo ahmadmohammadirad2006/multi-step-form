@@ -6,7 +6,69 @@
     <title>Multi Step Form</title>
     <link rel="stylesheet" href="src/css/output.css" />
   </head>
-  <body>
-    
+  <body
+    class="text-base font-ubuntu min-h-dvh text-white bg-lightGray sm:flex sm:items-center sm:justify-center"
+  >
+    <!-- MAIN SECTION -->
+
+    <main class="container flex rounded-lg sm:bg-white sm:p-4 xl:w-[75rem]">
+      <!-- STEPS SIDEBAR -->
+      <aside
+        class="flex bg-cover bg-no-repeat p-8 bg-[url('/src/images/bg-sidebar-mobile.svg')] h-44 w-full sm:bg-[url('/src/images/bg-sidebar-desktop.svg')] sm:w-auto sm:h-[40rem] sm:rounded-lg sm:p-10 justify-center"
+      >
+        <!-- STEPS LIST -->
+        <ul class="flex gap-4 sm:flex-col sm:w-56 sm:gap-8">
+          <!-- STEPS ITEM 1 -->
+          <li class="step-item-active sm:flex sm:gap-4 items-center">
+            <div
+              class="font-bold w-9 h-9 bg-transparent border rounded-full flex items-center justify-center"
+            >
+              1
+            </div>
+            <div class="hidden sm:flex flex-col uppercase">
+              <small class="text-coolGray text-sm h-4">Step 1</small
+              ><span class="font-bold tracking-widest"> Your info</span>
+            </div>
+          </li>
+          <!-- STEPS ITEM 2 -->
+          <li class=" sm:flex sm:gap-4 items-center">
+            <div
+              class="font-bold w-9 h-9 bg-transparent border rounded-full flex items-center justify-center"
+            >
+              2
+            </div>
+            <div class="hidden sm:flex flex-col uppercase">
+              <small class="text-coolGray text-sm h-4">Step 2</small
+              ><span class="font-bold tracking-widest"> Select plan </span>
+            </div>
+          </li>
+          <!-- STEPS ITEM 3 -->
+          <li class=" sm:flex sm:gap-4 items-center">
+            <div
+              class="font-bold w-9 h-9 bg-transparent border rounded-full flex items-center justify-center"
+            >
+              3
+            </div>
+            <div class="hidden sm:flex flex-col uppercase">
+              <small class="text-coolGray text-sm h-4">Step 3</small
+              ><span class="font-bold tracking-widest"> Add-ons</span>
+            </div>
+          </li>
+          <!-- STEPS ITEM 4 -->
+          <li class=" sm:flex sm:gap-4 items-center">
+            <div
+              class="font-bold w-9 h-9 bg-transparent border rounded-full flex items-center justify-center"
+            >
+              4
+            </div>
+
+            <div class="hidden sm:flex flex-col uppercase">
+              <small class="text-coolGray text-sm h-4">Step 4</small
+              ><span class="font-bold tracking-widest">Summary</span>
+            </div>
+          </li>
+        </ul>
+      </aside>
+    </main>
   </body>
 </html>

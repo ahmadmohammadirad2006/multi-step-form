@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="src/css/output.css" />
   </head>
   <body
-    class="text-base font-ubuntu min-h-dvh text-white bg-lightGray sm:flex sm:items-center sm:justify-center"
+    class="text-base font-ubuntu min-h-screen text-white bg-lightGray sm:flex sm:items-center sm:justify-center"
   >
     <!-- MAIN SECTION -->
-
-    <main class="container flex rounded-lg sm:bg-white sm:p-4 xl:w-[75rem]">
+    <main
+      class="container flex flex-col rounded-lg sm:bg-white sm:p-4 xl:w-[68rem] sm:flex-row"
+    >
       <!-- STEPS SIDEBAR -->
       <aside
         class="flex bg-cover bg-no-repeat p-8 bg-[url('/src/images/bg-sidebar-mobile.svg')] h-44 w-full sm:bg-[url('/src/images/bg-sidebar-desktop.svg')] sm:w-auto sm:h-[40rem] sm:rounded-lg sm:p-10 justify-center"
@@ -31,7 +32,7 @@
             </div>
           </li>
           <!-- STEPS ITEM 2 -->
-          <li class=" sm:flex sm:gap-4 items-center">
+          <li class="sm:flex sm:gap-4 items-center">
             <div
               class="font-bold w-9 h-9 bg-transparent border rounded-full flex items-center justify-center"
             >
@@ -43,7 +44,7 @@
             </div>
           </li>
           <!-- STEPS ITEM 3 -->
-          <li class=" sm:flex sm:gap-4 items-center">
+          <li class="sm:flex sm:gap-4 items-center">
             <div
               class="font-bold w-9 h-9 bg-transparent border rounded-full flex items-center justify-center"
             >
@@ -55,7 +56,7 @@
             </div>
           </li>
           <!-- STEPS ITEM 4 -->
-          <li class=" sm:flex sm:gap-4 items-center">
+          <li class="sm:flex sm:gap-4 items-center">
             <div
               class="font-bold w-9 h-9 bg-transparent border rounded-full flex items-center justify-center"
             >
@@ -69,6 +70,95 @@
           </li>
         </ul>
       </aside>
+
+      <!-- STEP 1 FORM -->
+      <section
+        class="-mt-[5.7rem] flex flex-col justify-between top-20 sm:-mt-0 sm:w-full sm:p-1 lg:px-14 lg:py-6 xl:px-24"
+      >
+        <!-- HEADIING & FORM -->
+        <section class="bg-white rounded-lg px-6 py-7 m-6 sm:p-0">
+          <!-- HEADING -->
+          <h3
+            class="font-bold text-2xl text-marineBlue mb-2 md:text-3xl xl:text-4xl"
+          >
+            Personal info
+          </h3>
+          <p class="text-coolGray lg:text-lg">
+            Please provide your name, email address, and phone number.
+          </p>
+
+          <!-- FORM -->
+          <form
+            action=""
+            class="mt-4 flex flex-col gap-2 text-coolGray sm:gap-4 sm:mt-6 lg:gap-6 lg:mt-8"
+          >
+            <!-- INPUT GROUP -->
+            <div>
+              <!-- INFO -->
+              <span class="text-sm xl:text-base flex justify-between">
+                <!-- LABEL -->
+                <label class="text-marineBlue" for="name">Name</label>
+                <!-- ERROR MESSAGE -->
+                <span class="text-strawberryRed font-bold"> </span>
+              </span>
+              <!-- INPUT -->
+              <input
+                class="border-[1px] border-lightGray rounded text-marineBlue w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 xl:px-4 xl:py-3 xl:rounded-lg"
+                id="name"
+                type="text"
+                placeholder="e.g. Stephen King"
+              />
+            </div>
+            <!-- INPUT GROUP -->
+            <div>
+              <!-- INFO -->
+              <span class="text-sm xl:text-base flex justify-between">
+                <!-- LABEL -->
+                <label class="text-marineBlue" for="email">Email Address</label>
+                <!-- ERROR MESSAGE -->
+                <span class="text-strawberryRed font-bold"></span>
+              </span>
+              <!-- INPUT -->
+              <input
+                class="border-[1px] border-lightGray text-marineBlue rounded w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 xl:px-4 xl:py-3 xl:rounded-lg"
+                id="email"
+                type="email"
+                placeholder="e.g. stephenking@lorem.com"
+              />
+            </div>
+            <!-- INPUT GROUP -->
+            <div>
+              <!-- INFO -->
+              <span class="text-sm xl:text-base flex justify-between">
+                <!-- LABEL -->
+                <label class="text-marineBlue" for="phoneNumber"
+                  >Phone Number</label
+                >
+                <!-- ERROR MESSAGE -->
+                <span class="text-strawberryRed font-bold"></span>
+              </span>
+              <!-- INPUT -->
+              <input
+                id="phoneNumber"
+                type="text"
+                placeholder="e.g. +1 234 567 890"
+                class="border-[1px] border-lightGray text-marineBlue rounded w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 xl:px-4 xl:py-3 xl:rounded-lg"
+              />
+            </div>
+          </form>
+        </section>
+        <!-- BUTTONS -->
+        <div
+          class="bg-white p-4 flex justify-end absolute bottom-0 w-full sm:w-auto sm:static xl:p-0"
+        >
+          <button
+            class="bg-marineBlue hover:opacity-90 p-3 rounded-md sm:px-4 lg:text-xl lg:px-6"
+            type="submit"
+          >
+            Next Step
+          </button>
+        </div>
+      </section>
     </main>
   </body>
 </html>

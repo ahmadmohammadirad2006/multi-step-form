@@ -6,3 +6,7 @@
 .step-item-active div:first-child{
   @apply  bg-white text-purplishBlue ;
 }
+
+.plan-item-active{
+  @apply bg-alabaster border-marineBlue
+}

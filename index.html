@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multi Step Form</title>
     <link rel="stylesheet" href="src/css/output.css" />
+    <script src="src/js/app.js" defer></script>
   </head>
   <body
     class="text-base font-ubuntu min-h-screen text-white bg-lightGray sm:flex sm:items-center sm:justify-center"
   >
     <!-- MAIN SECTION -->
     <main
-      class="container flex flex-col rounded-lg sm:bg-white sm:p-4 xl:w-[68rem] sm:flex-row"
+      class="container flex flex-col rounded-lg h-screen sm:h-auto sm:bg-white sm:p-4 xl:w-[68rem] sm:flex-row"
     >
       <!-- STEPS SIDEBAR -->
       <aside
-        class="flex bg-cover bg-no-repeat p-8 bg-[url('/src/images/bg-sidebar-mobile.svg')] h-44 w-full sm:bg-[url('/src/images/bg-sidebar-desktop.svg')] sm:w-auto sm:h-[40rem] sm:rounded-lg sm:p-10 justify-center"
+        class="flex items-start bg-cover bg-no-repeat p-8 bg-[url('/src/images/bg-sidebar-mobile.svg')] h-44 w-full sm:bg-[url('/src/images/bg-sidebar-desktop.svg')] sm:w-auto sm:h-[40rem] sm:rounded-lg sm:p-10 justify-center"
       >
         <!-- STEPS LIST -->
-        <ul class="flex gap-4 sm:flex-col sm:w-56 sm:gap-8">
+        <ul class="flex gap-4 mb-16 sm:m-0 sm:flex-col sm:w-56 sm:gap-8">
           <!-- STEPS ITEM 1 -->
           <li class="step-item-active sm:flex sm:gap-4 items-center">
             <div
@@ -73,27 +74,27 @@
 
       <!-- STEP 1 FORM -->
       <section
-        class="-mt-[5.7rem] flex flex-col justify-between top-20 sm:-mt-0 sm:w-full sm:p-1 lg:px-14 lg:py-6 xl:px-24"
+        class="hidden  -mt-[5rem] flex flex-col h-full sm:h-auto justify-between top-20 sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8  lg:px-20 lg:py-10 xl:px-[7.8rem] xl:py-12"
       >
         <!-- HEADIING & FORM -->
-        <section class="bg-white rounded-lg px-6 py-7 m-6 sm:p-0">
+        <section class="bg-white rounded-lg px-6 py-7 m-[.9rem] sm:m-0 sm:p-0">
           <!-- HEADING -->
           <h3
-            class="font-bold text-2xl text-marineBlue mb-2 md:text-3xl xl:text-4xl"
+            class="font-bold text-2xl text-marineBlue mb-2 md:text-3xl lg:text-4xl"
           >
             Personal info
           </h3>
-          <p class="text-coolGray lg:text-lg">
+          <p class="text-coolGray  text-[1.05rem] lg:text-lg">
             Please provide your name, email address, and phone number.
           </p>
 
           <!-- FORM -->
           <form
             action=""
-            class="mt-4 flex flex-col gap-2 text-coolGray sm:gap-4 sm:mt-6 lg:gap-6 lg:mt-8"
+            class="mt-5 flex flex-col gap-3 text-coolGray md:gap-5 md:mt-7 sm:mt-6 lg:gap-6 lg:mt-8"
           >
             <!-- INPUT GROUP -->
-            <div>
+            <div >
               <!-- INFO -->
               <span class="text-sm xl:text-base flex justify-between">
                 <!-- LABEL -->
@@ -103,7 +104,7 @@
               </span>
               <!-- INPUT -->
               <input
-                class="border-[1px] border-lightGray rounded text-marineBlue w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 xl:px-4 xl:py-3 xl:rounded-lg"
+                class="border-[1px]   border-lightGray rounded text-marineBlue w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 lg:px-4 lg:py-3 lg:rounded-lg"
                 id="name"
                 type="text"
                 placeholder="e.g. Stephen King"
@@ -120,14 +121,14 @@
               </span>
               <!-- INPUT -->
               <input
-                class="border-[1px] border-lightGray text-marineBlue rounded w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 xl:px-4 xl:py-3 xl:rounded-lg"
+                class="border-[1px]   border-lightGray text-marineBlue rounded w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 lg:px-4 lg:py-3 lg:rounded-lg"
                 id="email"
                 type="email"
                 placeholder="e.g. stephenking@lorem.com"
               />
             </div>
             <!-- INPUT GROUP -->
-            <div>
+            <div >
               <!-- INFO -->
               <span class="text-sm xl:text-base flex justify-between">
                 <!-- LABEL -->
@@ -142,17 +143,116 @@
                 id="phoneNumber"
                 type="text"
                 placeholder="e.g. +1 234 567 890"
-                class="border-[1px] border-lightGray text-marineBlue rounded w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 xl:px-4 xl:py-3 xl:rounded-lg"
+                class="border-[1px]   border-lightGray text-marineBlue rounded w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 lg:px-4 lg:py-3 lg:rounded-lg"
               />
             </div>
           </form>
         </section>
         <!-- BUTTONS -->
-        <div
-          class="bg-white p-4 flex justify-end absolute bottom-0 w-full sm:w-auto sm:static xl:p-0"
-        >
+        <div class="bg-white p-4 flex justify-end w-full text-sm lg:text-xl sm:w-auto sm:p-0">
           <button
-            class="bg-marineBlue hover:opacity-90 p-3 rounded-md sm:px-4 lg:text-xl lg:px-6"
+            class="bg-marineBlue hover:opacity-90  px-4 py-3 rounded sm:px-4  lg:px-6 lg:rounded-lg"
+            type="submit"
+          >
+            Next Step
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 2 FORM -->
+      <section
+        class=" -mt-[5rem] flex flex-col justify-between  h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8  lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12"
+      >
+      <!-- HEADING AND PLANS-->
+        <section class="bg-white rounded-lg px-6 py-7 m-[.9rem] sm:m-0 sm:p-0">
+          <!-- HEADING -->
+          <h3
+            class="font-bold text-2xl text-marineBlue mb-2 md:text-3xl lg:text-4xl"
+          >
+            Select your plan
+          </h3>
+          <p class="text-coolGray text-[1.03rem] lg:text-lg">
+            You have the option of monthly or yearly billing.
+          </p>
+
+          <!-- PLANS AND MONTHLY OF YEARLY BUTTON-->
+          <div class="flex flex-col gap-6 mt-5 lg:mt-10 lg:gap-11">
+            <!-- PLANS -->
+            <ul
+              class=" flex flex-col gap-3   lg:flex-row lg:gap-5"
+            >
+              <!-- PLAN -->
+              <li
+                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray plan-item-active lg:flex-col lg:gap-10 lg:flex-grow"
+              >
+                <!-- ICON -->
+                <img src="src/images/icon-arcade.svg" alt="arcde-icon" />
+                <!-- INFO -->
+                <div class="flex flex-col">
+                  <!-- NAME -->
+                  <span class="font-bold">Arcade</span>
+                  <!-- PRICE -->
+                  <span class="text-coolGray ">$90/yr</span>
+                  <!-- HOW MUCH FREE -->
+                  <span class="text-[.8rem]">2 months free</span>
+                </div>
+              </li>
+              <!-- PLAN -->
+              <li
+                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray lg:flex-col lg:gap-8 lg:flex-grow"
+              >
+                <!-- ICON -->
+                <img src="src/images/icon-advanced.svg" alt="arcde-icon" />
+                <!-- INFO -->
+                <div class="flex flex-col">
+                  <!-- NAME -->
+                  <span class="font-bold">Advanced</span>
+                  <!-- PRICE -->
+                  <span class="text-coolGray text-sm"> $12/yr</span>
+                  <!-- HOW MUCH FREE -->
+                  <span class="text-[.8rem]">2 months free</span>
+                </div>
+              </li>
+              <!-- PLAN -->
+              <li
+                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray lg:flex-col lg:gap-8 lg:flex-grow"
+              >
+                <!-- ICON -->
+                <img src="src/images/icon-pro.svg" alt="arcde-icon" />
+                <!-- INFO -->
+                <div class="flex flex-col">
+                  <!-- NAME -->
+                  <span class="font-bold"> Pro </span>
+                  <!-- PRICE -->
+                  <span class="text-coolGray text-sm">$15/yr</span>
+                  <!-- HOW MUCH FREE -->
+                  <span class="text-[.8rem]">2 months free</span>
+                </div>
+              </li>
+            </ul>
+            <!-- MONTHLY OF YEARLY BUTTON -->
+            <div
+              class="flex  text-coolGray  bg-magnolia p-2 justify-center gap-6 text-lg font-bold items-center rounded-md"
+            >
+              <small >Monthly</small>
+              <!-- TRIGER -->
+              <span
+                class="w-[2.3rem] h-5 rounded-full flex justify-center items-center  bg-marineBlue"
+              >
+                <!-- CIRCLE -->
+                <span
+                  class="bg-white size-[.765rem] rounded-full translate-y-[-.01rem]  translate-x-[.53rem] "
+                ></span>
+              </span>
+              <small class="text-marineBlue">Yearly</small>
+            </div>
+          </div>
+        </section>
+        <!-- BUTTONS -->
+        <div class="bg-white p-4 flex justify-between w-full text-sm lg:text-xl sm:w-auto sm:p-0">
+          <button class="text-coolGray font-bold">Go Back</button>
+          <button
+            class="bg-marineBlue hover:opacity-90  px-4 py-3 rounded sm:px-4  lg:px-6 lg:rounded-lg"
             type="submit"
           >
             Next Step

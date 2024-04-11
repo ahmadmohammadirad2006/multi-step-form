@@ -3,10 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.step-item-active div:first-child{
-  @apply  bg-white text-purplishBlue ;
+.step-item-active div:first-child {
+  @apply bg-white text-purplishBlue;
 }
 
-.plan-item-active{
-  @apply bg-alabaster border-marineBlue
+.plan-item-active,
+.ons-item-active {
+  @apply bg-alabaster border-marineBlue;
 }

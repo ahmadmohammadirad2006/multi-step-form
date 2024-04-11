@@ -74,7 +74,7 @@
 
       <!-- STEP 1 FORM -->
       <section
-        class="hidden  -mt-[5rem] flex flex-col h-full sm:h-auto justify-between top-20 sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8  lg:px-20 lg:py-10 xl:px-[7.8rem] xl:py-12"
+        class="hidden -mt-[5rem] flex flex-col h-full sm:h-auto justify-between top-20 sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-20 lg:py-10 xl:px-[7.8rem] xl:py-12"
       >
         <!-- HEADIING & FORM -->
         <section class="bg-white rounded-lg px-6 py-7 m-[.9rem] sm:m-0 sm:p-0">
@@ -84,7 +84,7 @@
           >
             Personal info
           </h3>
-          <p class="text-coolGray  text-[1.05rem] lg:text-lg">
+          <p class="text-coolGray text-[1.05rem] lg:text-lg">
             Please provide your name, email address, and phone number.
           </p>
 
@@ -94,7 +94,7 @@
             class="mt-5 flex flex-col gap-3 text-coolGray md:gap-5 md:mt-7 sm:mt-6 lg:gap-6 lg:mt-8"
           >
             <!-- INPUT GROUP -->
-            <div >
+            <div>
               <!-- INFO -->
               <span class="text-sm xl:text-base flex justify-between">
                 <!-- LABEL -->
@@ -104,7 +104,7 @@
               </span>
               <!-- INPUT -->
               <input
-                class="border-[1px]   border-lightGray rounded text-marineBlue w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 lg:px-4 lg:py-3 lg:rounded-lg"
+                class="border-[1px] border-lightGray rounded text-marineBlue w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 lg:px-4 lg:py-3 lg:rounded-lg"
                 id="name"
                 type="text"
                 placeholder="e.g. Stephen King"
@@ -121,14 +121,14 @@
               </span>
               <!-- INPUT -->
               <input
-                class="border-[1px]   border-lightGray text-marineBlue rounded w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 lg:px-4 lg:py-3 lg:rounded-lg"
+                class="border-[1px] border-lightGray text-marineBlue rounded w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 lg:px-4 lg:py-3 lg:rounded-lg"
                 id="email"
                 type="email"
                 placeholder="e.g. stephenking@lorem.com"
               />
             </div>
             <!-- INPUT GROUP -->
-            <div >
+            <div>
               <!-- INFO -->
               <span class="text-sm xl:text-base flex justify-between">
                 <!-- LABEL -->
@@ -143,15 +143,17 @@
                 id="phoneNumber"
                 type="text"
                 placeholder="e.g. +1 234 567 890"
-                class="border-[1px]   border-lightGray text-marineBlue rounded w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 lg:px-4 lg:py-3 lg:rounded-lg"
+                class="border-[1px] border-lightGray text-marineBlue rounded w-full py-2 px-3 placeholder:font-bold font-bold lg:mt-1 lg:px-4 lg:py-3 lg:rounded-lg"
               />
             </div>
           </form>
         </section>
         <!-- BUTTONS -->
-        <div class="bg-white p-4 flex justify-end w-full text-sm lg:text-xl sm:w-auto sm:p-0">
+        <div
+          class="bg-white p-4 flex justify-end w-full text-sm lg:text-xl sm:w-auto sm:p-0"
+        >
           <button
-            class="bg-marineBlue hover:opacity-90  px-4 py-3 rounded sm:px-4  lg:px-6 lg:rounded-lg"
+            class="bg-marineBlue hover:opacity-90 px-4 py-3 rounded sm:px-4 lg:px-6 lg:rounded-lg"
             type="submit"
           >
             Next Step
@@ -161,9 +163,9 @@
 
       <!-- STEP 2 FORM -->
       <section
-        class=" -mt-[5rem] flex flex-col justify-between  h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8  lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12"
+        class="hidden -mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12"
       >
-      <!-- HEADING AND PLANS-->
+        <!-- HEADING AND PLANS-->
         <section class="bg-white rounded-lg px-6 py-7 m-[.9rem] sm:m-0 sm:p-0">
           <!-- HEADING -->
           <h3
@@ -178,12 +180,10 @@
           <!-- PLANS AND MONTHLY OF YEARLY BUTTON-->
           <div class="flex flex-col gap-6 mt-5 lg:mt-10 lg:gap-11">
             <!-- PLANS -->
-            <ul
-              class=" flex flex-col gap-3   lg:flex-row lg:gap-5"
-            >
+            <ul class="flex flex-col gap-3 lg:flex-row lg:gap-5">
               <!-- PLAN -->
               <li
-                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray plan-item-active lg:flex-col lg:gap-10 lg:flex-grow"
+                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray hover:border-marineBlue plan-item-active lg:flex-col lg:gap-10 lg:flex-grow"
               >
                 <!-- ICON -->
                 <img src="src/images/icon-arcade.svg" alt="arcde-icon" />
@@ -192,14 +192,14 @@
                   <!-- NAME -->
                   <span class="font-bold">Arcade</span>
                   <!-- PRICE -->
-                  <span class="text-coolGray ">$90/yr</span>
+                  <span class="text-coolGray">$90/yr</span>
                   <!-- HOW MUCH FREE -->
                   <span class="text-[.8rem]">2 months free</span>
                 </div>
               </li>
               <!-- PLAN -->
               <li
-                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray lg:flex-col lg:gap-8 lg:flex-grow"
+                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray hover:border-marineBlue lg:flex-col lg:gap-8 lg:flex-grow"
               >
                 <!-- ICON -->
                 <img src="src/images/icon-advanced.svg" alt="arcde-icon" />
@@ -215,7 +215,7 @@
               </li>
               <!-- PLAN -->
               <li
-                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray lg:flex-col lg:gap-8 lg:flex-grow"
+                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray hover:border-marineBlue lg:flex-col lg:gap-8 lg:flex-grow"
               >
                 <!-- ICON -->
                 <img src="src/images/icon-pro.svg" alt="arcde-icon" />
@@ -232,16 +232,16 @@
             </ul>
             <!-- MONTHLY OF YEARLY BUTTON -->
             <div
-              class="flex  text-coolGray  bg-magnolia p-2 justify-center gap-6 text-lg font-bold items-center rounded-md"
+              class="flex text-coolGray bg-magnolia p-2 justify-center gap-6 text-lg font-bold items-center rounded-md"
             >
-              <small >Monthly</small>
+              <small>Monthly</small>
               <!-- TRIGER -->
               <span
-                class="w-[2.3rem] h-5 rounded-full flex justify-center items-center  bg-marineBlue"
+                class="w-[2.3rem] h-5 rounded-full flex justify-center items-center bg-marineBlue"
               >
                 <!-- CIRCLE -->
                 <span
-                  class="bg-white size-[.765rem] rounded-full translate-y-[-.01rem]  translate-x-[.53rem] "
+                  class="bg-white size-[.765rem] rounded-full translate-y-[-.01rem] translate-x-[.53rem]"
                 ></span>
               </span>
               <small class="text-marineBlue">Yearly</small>
@@ -249,16 +249,164 @@
           </div>
         </section>
         <!-- BUTTONS -->
-        <div class="bg-white p-4 flex justify-between w-full text-sm lg:text-xl sm:w-auto sm:p-0">
-          <button class="text-coolGray font-bold">Go Back</button>
+        <div
+          class="bg-white p-4 flex justify-between w-full text-sm lg:text-xl sm:w-auto sm:p-0"
+        >
+          <button class="text-coolGray font-bold hover:text-marineBlue">
+            Go Back
+          </button>
           <button
-            class="bg-marineBlue hover:opacity-90  px-4 py-3 rounded sm:px-4  lg:px-6 lg:rounded-lg"
+            class="bg-marineBlue hover:opacity-90 px-4 py-3 rounded sm:px-4 lg:px-6 lg:rounded-lg"
             type="submit"
           >
             Next Step
           </button>
         </div>
       </section>
+
+      <!-- STEP 3 FORM -->
+      <section
+        class="-mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12"
+      >
+        <!-- HEADING AND ONS-->
+        <section class="bg-white rounded-lg px-6 py-7 m-[.9rem] sm:m-0 sm:p-0">
+          <!-- HEADING -->
+          <h3
+            class="font-bold text-2xl text-marineBlue mb-2 md:text-3xl lg:text-4xl"
+          >
+            Pick add-ons
+          </h3>
+          <p class="text-coolGray text-[1.03rem] lg:text-lg">
+            Add-ons help enhance your gaming experience.
+          </p>
+
+          <ul class="flex flex-col gap-3 mt-5 lg:mt-10 lg:gap-4">
+            <li
+              class="border-[1px] border-lightGray rounded-lg flex p-3 gap-3 items-center lg:p-5 lg:gap-6 ons-item-active"
+            >
+              <!-- CHECKBOX -->
+              <label>
+                <!-- INPUT -->
+                <input
+                  type="checkbox"
+                  checked
+                  class="opacity-0 w-0 h-0 absolute cursor-pointer peer"
+                />
+                <!-- CHECKMARK -->
+                <span
+                  class="size-6 border-[1px] border-lightGray block rounded-md flex items-center justify-center peer-checked:bg-purplishBlue peer-checked:after:block after:w-[.35rem] after:h-[.7rem] after:border-r-2 after:border-b-2 after:rotate-45 after:-translate-y-[1.5px] after:-translate-x-[.5px]"
+                ></span>
+              </label>
+
+              <!-- INFO -->
+              <div>
+                <span class="font-bold text-marineBlue text-sm lg:text-lg">
+                  Online service</span
+                >
+                <p
+                  class="text-coolGray text-[.775rem] -mt-1 leading-5 lg:text-base lg:mt-0"
+                >
+                  Access to multiplayer games
+                </p>
+              </div>
+
+              <!-- PRICE PER YEAR -->
+
+              <span
+                class="text-purplishBlue text-[.775rem] leading-5 ml-auto lg:text-base"
+                >+$10/yr</span
+              >
+            </li>
+            <li
+              class="border-[1px] border-lightGray rounded-lg flex p-3 gap-3 items-center lg:p-5 lg:gap-6 ons-item-active"
+            >
+              <!-- CHECKBOX -->
+              <label>
+                <!-- INPUT -->
+                <input
+                  type="checkbox"
+                  checked
+                  class="opacity-0 w-0 h-0 absolute cursor-pointer peer"
+                />
+                <!-- CHECKMARK -->
+                <span
+                  class="size-6 border-[1px] border-lightGray block rounded-md flex items-center justify-center peer-checked:bg-purplishBlue peer-checked:after:block after:w-[.35rem] after:h-[.7rem] after:border-r-2 after:border-b-2 after:rotate-45 after:-translate-y-[1.5px] after:-translate-x-[.5px]"
+                ></span>
+              </label>
+
+              <!-- INFO -->
+              <div>
+                <span class="font-bold text-marineBlue text-sm lg:text-lg">
+                  Larger storage</span
+                >
+                <p
+                  class="text-coolGray text-[.775rem] -mt-1 leading-5 lg:text-base lg:mt-0"
+                >
+                  Extra 1TB of cloud save
+                </p>
+              </div>
+
+              <!-- PRICE PER YEAR -->
+
+              <span
+                class="text-purplishBlue text-[.775rem] leading-5 ml-auto lg:text-base"
+                >+$20/yr</span
+              >
+            </li>
+            <li
+              class="border-[1px] border-lightGray rounded-lg flex p-3 gap-3 items-center lg:p-5 lg:gap-6"
+            >
+              <!-- CHECKBOX -->
+              <label>
+                <!-- INPUT -->
+                <input
+                  type="checkbox"
+                  class="opacity-0 w-0 h-0 absolute cursor-pointer peer"
+                />
+                <!-- CHECKMARK -->
+                <span
+                  class="size-6 border-[1px] border-lightGray block rounded-md flex items-center justify-center peer-checked:bg-purplishBlue peer-checked:after:block after:w-[.35rem] after:h-[.7rem] after:border-r-2 after:border-b-2 after:rotate-45 after:-translate-y-[1.5px] after:-translate-x-[.5px]"
+                ></span>
+              </label>
+
+              <!-- INFO -->
+              <div>
+                <span class="font-bold text-marineBlue text-sm lg:text-lg">
+                  Customizable Profile</span
+                >
+                <p
+                  class="text-coolGray text-[.775rem] -mt-1 leading-5 lg:text-base lg:mt-0"
+                >
+                  Custom theme on your profile
+                </p>
+              </div>
+
+              <!-- PRICE PER YEAR -->
+
+              <span
+                class="text-purplishBlue text-[.775rem] leading-5 ml-auto lg:text-base"
+                >+$20/yr</span
+              >
+            </li>
+          </ul>
+        </section>
+        <!-- BUTTONS -->
+        <div
+          class="bg-white p-4 flex justify-between w-full text-sm lg:text-xl sm:w-auto sm:p-0"
+        >
+          <button class="text-coolGray hover:text-marineBlue font-bold">
+            Go Back
+          </button>
+          <button
+            class="bg-marineBlue hover:opacity-90 px-4 py-3 rounded sm:px-4 lg:px-6 lg:rounded-lg"
+            type="submit"
+          >
+            Next Step
+          </button>
+        </div>
+      </section>
+
+      
     </main>
   </body>
 </html>

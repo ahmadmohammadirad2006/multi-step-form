@@ -408,7 +408,7 @@
 
       <!-- STEP 4 FORM -->
       <section
-        class="-mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12"
+        class="hidden -mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12"
       >
         <!-- HEADING AND ONS-->
         <section class="bg-white rounded-lg px-6 py-7 m-[.9rem] sm:m-0 sm:p-0">
@@ -423,8 +423,7 @@
           </p>
 
           <!-- PRICE OF CHOSEN OPTIONS -->
-          <div class="mt-5  text-sm flex flex-col gap-6 lg:mt-10 lg:text-base">
-
+          <div class="mt-5 text-sm flex flex-col gap-6 lg:mt-10 lg:text-base">
             <div class="bg-alabaster p-5 rounded-lg flex flex-col gap-3">
               <!-- CHOSEN PLAN -->
               <div
@@ -432,7 +431,9 @@
               >
                 <span class="flex flex-col">
                   <span>Arcade(Yearly)</span>
-                  <a href="#" class="underline text-coolGray font-light lg:text-sm"
+                  <a
+                    href="#"
+                    class="underline text-coolGray font-light lg:text-sm"
                     >Change</a
                   >
                 </span>
@@ -441,37 +442,31 @@
               </div>
 
               <!-- CHOSEN ADD-ONS -->
-              <ul class="text-coolGray flex flex-col gap-3" >
-             
+              <ul class="text-coolGray flex flex-col gap-3">
                 <li class="flex justify-between">
                   <!-- NAME -->
                   <span>Online Service</span>
                   <!-- PRICE -->
                   <span class="text-marineBlue">+$10/yr</span>
-                
                 </li>
-                
+
                 <li class="flex justify-between">
                   <!-- NAME -->
                   <span>Larger Storage</span>
                   <!-- PRICE -->
                   <span class="text-marineBlue">+$20/yr</span>
                 </li>
-
               </ul>
-
-
-
             </div>
 
             <!-- TOTAL -->
             <div class="px-5 flex justify-between">
               <span class="text-coolGray">Total (per year)</span>
               <!-- TOTAL PRICE -->
-              <span class="text-purplishBlue font-bold text-base lg:text-xl">$120/yr</span>
+              <span class="text-purplishBlue font-bold text-base lg:text-xl"
+                >$120/yr</span
+              >
             </div>
-
-
           </div>
         </section>
 
@@ -491,7 +486,30 @@
         </div>
       </section>
 
-      
+      <!-- THANK YOU SECTION -->
+      <section
+        class="-mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12 sm:justify-center"
+      >
+        <!-- HEADING AND ONS-->
+        <section
+          class="bg-white rounded-lg px-5 py-20 py-7 m-[.9rem] sm:m-0 sm:p-0 text-center flex flex-col items-center "
+        >
+          <!-- THANK YOU ICON -->
+      <img src="src/images/icon-thank-you.svg" alt="tick logo" class="mb-6 w-14 md:w-20 md:mb-8">
+
+          <!-- THANK YOU HEADING -->
+          <h3
+            class="font-bold text-2xl text-marineBlue mb-2 md:text-3xl lg:text-4xl"
+          >
+            Thank you!
+          </h3>
+          <p class="text-coolGray text-[1.03rem] lg:text-lg">
+            Thanks for confirming your subscription! We hope you have fun using
+            our platform. If you ever need support, please feel free to email us
+            at support@loremgaming.com.
+          </p>
+        </section>
+      </section>
     </main>
   </body>
 </html>

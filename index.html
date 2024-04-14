@@ -266,7 +266,7 @@
 
       <!-- STEP 3 FORM -->
       <section
-        class="-mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12"
+        class="hidden -mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12"
       >
         <!-- HEADING AND ONS-->
         <section class="bg-white rounded-lg px-6 py-7 m-[.9rem] sm:m-0 sm:p-0">
@@ -402,6 +402,91 @@
             type="submit"
           >
             Next Step
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 4 FORM -->
+      <section
+        class="-mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12"
+      >
+        <!-- HEADING AND ONS-->
+        <section class="bg-white rounded-lg px-6 py-7 m-[.9rem] sm:m-0 sm:p-0">
+          <!-- HEADING -->
+          <h3
+            class="font-bold text-2xl text-marineBlue mb-2 md:text-3xl lg:text-4xl"
+          >
+            Finishing up
+          </h3>
+          <p class="text-coolGray text-[1.03rem] lg:text-lg">
+            Double-check everything looks OK before confirming.
+          </p>
+
+          <!-- PRICE OF CHOSEN OPTIONS -->
+          <div class="mt-5  text-sm flex flex-col gap-6 lg:mt-10 lg:text-base">
+
+            <div class="bg-alabaster p-5 rounded-lg flex flex-col gap-3">
+              <!-- CHOSEN PLAN -->
+              <div
+                class="text-marineBlue font-bold flex justify-between items-center border-b-[1px] pb-3 border-b-lightGray lg:pb-6"
+              >
+                <span class="flex flex-col">
+                  <span>Arcade(Yearly)</span>
+                  <a href="#" class="underline text-coolGray font-light lg:text-sm"
+                    >Change</a
+                  >
+                </span>
+                <!-- PRICE -->
+                <span>$90/yr</span>
+              </div>
+
+              <!-- CHOSEN ADD-ONS -->
+              <ul class="text-coolGray flex flex-col gap-3" >
+             
+                <li class="flex justify-between">
+                  <!-- NAME -->
+                  <span>Online Service</span>
+                  <!-- PRICE -->
+                  <span class="text-marineBlue">+$10/yr</span>
+                
+                </li>
+                
+                <li class="flex justify-between">
+                  <!-- NAME -->
+                  <span>Larger Storage</span>
+                  <!-- PRICE -->
+                  <span class="text-marineBlue">+$20/yr</span>
+                </li>
+
+              </ul>
+
+
+
+            </div>
+
+            <!-- TOTAL -->
+            <div class="px-5 flex justify-between">
+              <span class="text-coolGray">Total (per year)</span>
+              <!-- TOTAL PRICE -->
+              <span class="text-purplishBlue font-bold text-base lg:text-xl">$120/yr</span>
+            </div>
+
+
+          </div>
+        </section>
+
+        <!-- BUTTONS -->
+        <div
+          class="bg-white p-4 flex justify-between w-full text-sm lg:text-xl sm:w-auto sm:p-0"
+        >
+          <button class="text-coolGray hover:text-marineBlue font-bold">
+            Go Back
+          </button>
+          <button
+            class="bg-purplishBlue hover:opacity-90 px-4 py-3 rounded sm:px-4 lg:px-6 lg:rounded-lg"
+            type="submit"
+          >
+            Confirm
           </button>
         </div>
       </section>

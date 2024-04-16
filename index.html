@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multi Step Form</title>
     <link rel="stylesheet" href="src/css/output.css" />
-    <script src="src/js/app.js" defer></script>
+    <script src="src/js/script.js" defer></script>
   </head>
   <body
     class="text-base font-ubuntu min-h-screen text-white bg-lightGray sm:flex sm:items-center sm:justify-center"
@@ -19,9 +19,9 @@
         class="flex items-start bg-cover bg-no-repeat p-8 bg-[url('/src/images/bg-sidebar-mobile.svg')] h-44 w-full sm:bg-[url('/src/images/bg-sidebar-desktop.svg')] sm:w-auto sm:h-[40rem] sm:rounded-lg sm:p-10 justify-center"
       >
         <!-- STEPS LIST -->
-        <ul class="flex gap-4 mb-16 sm:m-0 sm:flex-col sm:w-56 sm:gap-8">
+        <ul class="flex gap-4 mb-16 sm:m-0 sm:flex-col sm:w-56 sm:gap-8" id="stepsList">
           <!-- STEPS ITEM 1 -->
-          <li class="step-item-active sm:flex sm:gap-4 items-center">
+          <li class="step-item-active sm:flex sm:gap-4 items-center" data-step="1">
             <div
               class="font-bold w-9 h-9 bg-transparent border rounded-full flex items-center justify-center"
             >
@@ -33,7 +33,7 @@
             </div>
           </li>
           <!-- STEPS ITEM 2 -->
-          <li class="sm:flex sm:gap-4 items-center">
+          <li class="sm:flex sm:gap-4 items-center" data-step="2">
             <div
               class="font-bold w-9 h-9 bg-transparent border rounded-full flex items-center justify-center"
             >
@@ -45,7 +45,7 @@
             </div>
           </li>
           <!-- STEPS ITEM 3 -->
-          <li class="sm:flex sm:gap-4 items-center">
+          <li class="sm:flex sm:gap-4 items-center" data-step="3">
             <div
               class="font-bold w-9 h-9 bg-transparent border rounded-full flex items-center justify-center"
             >
@@ -57,7 +57,7 @@
             </div>
           </li>
           <!-- STEPS ITEM 4 -->
-          <li class="sm:flex sm:gap-4 items-center">
+          <li class="sm:flex sm:gap-4 items-center" data-step="4">
             <div
               class="font-bold w-9 h-9 bg-transparent border rounded-full flex items-center justify-center"
             >
@@ -74,7 +74,8 @@
 
       <!-- STEP 1 FORM -->
       <section
-        class="hidden -mt-[5rem] flex flex-col h-full sm:h-auto justify-between top-20 sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-20 lg:py-10 xl:px-[7.8rem] xl:py-12"
+        data-step="1"
+        class="-mt-[5rem] flex flex-col h-full sm:h-auto justify-between top-20 sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-20 lg:py-10 xl:px-[7.8rem] xl:py-12"
       >
         <!-- HEADIING & FORM -->
         <section class="bg-white rounded-lg px-6 py-7 m-[.9rem] sm:m-0 sm:p-0">
@@ -92,6 +93,7 @@
           <form
             action=""
             class="mt-5 flex flex-col gap-3 text-coolGray md:gap-5 md:mt-7 sm:mt-6 lg:gap-6 lg:mt-8"
+            id="form"
           >
             <!-- INPUT GROUP -->
             <div>
@@ -155,6 +157,7 @@
           <button
             class="bg-marineBlue hover:opacity-90 px-4 py-3 rounded sm:px-4 lg:px-6 lg:rounded-lg"
             type="submit"
+            id="submitFormBtn"
           >
             Next Step
           </button>
@@ -163,6 +166,7 @@
 
       <!-- STEP 2 FORM -->
       <section
+        data-step="2"
         class="hidden -mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12"
       >
         <!-- HEADING AND PLANS-->
@@ -266,6 +270,7 @@
 
       <!-- STEP 3 FORM -->
       <section
+        data-step="3"
         class="hidden -mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12"
       >
         <!-- HEADING AND ONS-->
@@ -408,6 +413,7 @@
 
       <!-- STEP 4 FORM -->
       <section
+        data-step="4"
         class="hidden -mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12"
       >
         <!-- HEADING AND ONS-->
@@ -488,14 +494,19 @@
 
       <!-- THANK YOU SECTION -->
       <section
-        class="-mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12 sm:justify-center"
+        data-step="5"
+        class="hidden -mt-[5rem] flex flex-col justify-between h-full sm:h-auto sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-28 lg:py-10 xl:px-[7.8rem] xl:py-12 sm:justify-center"
       >
         <!-- HEADING AND ONS-->
         <section
-          class="bg-white rounded-lg px-5 py-20 py-7 m-[.9rem] sm:m-0 sm:p-0 text-center flex flex-col items-center "
+          class="bg-white rounded-lg px-5 py-20 py-7 m-[.9rem] sm:m-0 sm:p-0 text-center flex flex-col items-center"
         >
           <!-- THANK YOU ICON -->
-      <img src="src/images/icon-thank-you.svg" alt="tick logo" class="mb-6 w-14 md:w-20 md:mb-8">
+          <img
+            src="src/images/icon-thank-you.svg"
+            alt="tick logo"
+            class="mb-6 w-14 md:w-20 md:mb-8"
+          />
 
           <!-- THANK YOU HEADING -->
           <h3

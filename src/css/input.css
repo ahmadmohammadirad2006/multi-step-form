@@ -9,5 +9,5 @@
 
 .plan-item-active,
 .ons-item-active {
-  @apply bg-alabaster border-marineBlue;
+  @apply bg-alabaster border-marineBlue cursor-auto;
 }

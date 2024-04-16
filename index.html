@@ -19,9 +19,15 @@
         class="flex items-start bg-cover bg-no-repeat p-8 bg-[url('/src/images/bg-sidebar-mobile.svg')] h-44 w-full sm:bg-[url('/src/images/bg-sidebar-desktop.svg')] sm:w-auto sm:h-[40rem] sm:rounded-lg sm:p-10 justify-center"
       >
         <!-- STEPS LIST -->
-        <ul class="flex gap-4 mb-16 sm:m-0 sm:flex-col sm:w-56 sm:gap-8" id="stepsList">
+        <ul
+          class="flex gap-4 mb-16 sm:m-0 sm:flex-col sm:w-56 sm:gap-8"
+          id="stepsList"
+        >
           <!-- STEPS ITEM 1 -->
-          <li class="step-item-active sm:flex sm:gap-4 items-center" data-step="1">
+          <li
+            class="step-item-active sm:flex sm:gap-4 items-center"
+            data-step="1"
+          >
             <div
               class="font-bold w-9 h-9 bg-transparent border rounded-full flex items-center justify-center"
             >
@@ -75,7 +81,7 @@
       <!-- STEP 1 FORM -->
       <section
         data-step="1"
-        class="-mt-[5rem] flex flex-col h-full sm:h-auto justify-between top-20 sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-20 lg:py-10 xl:px-[7.8rem] xl:py-12"
+        class=" -mt-[5rem] flex flex-col h-full sm:h-auto justify-between top-20 sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-20 lg:py-10 xl:px-[7.8rem] xl:py-12"
       >
         <!-- HEADIING & FORM -->
         <section class="bg-white rounded-lg px-6 py-7 m-[.9rem] sm:m-0 sm:p-0">
@@ -184,10 +190,10 @@
           <!-- PLANS AND MONTHLY OF YEARLY BUTTON-->
           <div class="flex flex-col gap-6 mt-5 lg:mt-10 lg:gap-11">
             <!-- PLANS -->
-            <ul class="flex flex-col gap-3 lg:flex-row lg:gap-5">
+            <ul class="flex flex-col gap-3 lg:flex-row lg:gap-5" id="planList">
               <!-- PLAN -->
               <li
-                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray hover:border-marineBlue plan-item-active lg:flex-col lg:gap-10 lg:flex-grow"
+                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray hover:border-marineBlue lg:flex-col lg:gap-10 lg:flex-grow cursor-pointer justify-between plan-item-active"
               >
                 <!-- ICON -->
                 <img src="src/images/icon-arcade.svg" alt="arcde-icon" />
@@ -195,15 +201,15 @@
                 <div class="flex flex-col">
                   <!-- NAME -->
                   <span class="font-bold">Arcade</span>
-                  <!-- PRICE -->
-                  <span class="text-coolGray">$90/yr</span>
+                    <!-- PRICE -->
+                    <span class="text-coolGray">$<span>90</span>/yr</span>
                   <!-- HOW MUCH FREE -->
                   <span class="text-[.8rem]">2 months free</span>
                 </div>
               </li>
               <!-- PLAN -->
               <li
-                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray hover:border-marineBlue lg:flex-col lg:gap-8 lg:flex-grow"
+                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray hover:border-marineBlue lg:flex-col lg:gap-10 lg:flex-grow cursor-pointer justify-between"
               >
                 <!-- ICON -->
                 <img src="src/images/icon-advanced.svg" alt="arcde-icon" />
@@ -212,14 +218,14 @@
                   <!-- NAME -->
                   <span class="font-bold">Advanced</span>
                   <!-- PRICE -->
-                  <span class="text-coolGray text-sm"> $12/yr</span>
+                  <span class="text-coolGray">$<span>120</span>/yr</span>
                   <!-- HOW MUCH FREE -->
                   <span class="text-[.8rem]">2 months free</span>
                 </div>
               </li>
               <!-- PLAN -->
               <li
-                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray hover:border-marineBlue lg:flex-col lg:gap-8 lg:flex-grow"
+                class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray hover:border-marineBlue lg:flex-col lg:gap-10 lg:flex-grow cursor-pointer justify-between"
               >
                 <!-- ICON -->
                 <img src="src/images/icon-pro.svg" alt="arcde-icon" />
@@ -228,24 +234,26 @@
                   <!-- NAME -->
                   <span class="font-bold"> Pro </span>
                   <!-- PRICE -->
-                  <span class="text-coolGray text-sm">$15/yr</span>
+                  <span class="text-coolGray">$<span>150</span>/yr</span>
                   <!-- HOW MUCH FREE -->
                   <span class="text-[.8rem]">2 months free</span>
                 </div>
               </li>
             </ul>
-            <!-- MONTHLY OF YEARLY BUTTON -->
+            <!-- MONTHLY OR YEARLY BUTTON -->
             <div
               class="flex text-coolGray bg-magnolia p-2 justify-center gap-6 text-lg font-bold items-center rounded-md"
             >
               <small>Monthly</small>
               <!-- TRIGER -->
               <span
-                class="w-[2.3rem] h-5 rounded-full flex justify-center items-center bg-marineBlue"
+                class="w-[2.3rem] h-5 rounded-full flex justify-center items-center bg-marineBlue cursor-pointer"
+                id="changePlanTermBtn"
               >
                 <!-- CIRCLE -->
                 <span
-                  class="bg-white size-[.765rem] rounded-full translate-y-[-.01rem] translate-x-[.53rem]"
+                  class="bg-white size-[.765rem] rounded-full translate-y-[-.01rem] translate-x-[.53rem] transition-all"
+                  id="circle"
                 ></span>
               </span>
               <small class="text-marineBlue">Yearly</small>
@@ -262,6 +270,7 @@
           <button
             class="bg-marineBlue hover:opacity-90 px-4 py-3 rounded sm:px-4 lg:px-6 lg:rounded-lg"
             type="submit"
+            id="planNextStepBtn"
           >
             Next Step
           </button>

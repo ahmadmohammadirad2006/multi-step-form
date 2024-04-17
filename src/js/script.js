@@ -1,124 +1,181 @@
 // ELEMENTS
 
-const submitFormBtnEl = document.getElementById("submitFormBtn");
-const formEl = document.getElementById("form");
 const stpesListEl = document.getElementById("stepsList");
-const changePlanTermBtnEl = document.getElementById("changePlanTermBtn");
+
+const formEl = document.getElementById("form");
+const formInputEls = [...formEl.querySelectorAll("input")];
+
+const submitFormBtnEl = document.getElementById("submitFormBtn");
+
 const planListEl = document.getElementById("planList");
 const planNextStepBtnEl = document.getElementById("planNextStepBtn");
+const planListItemEls = [...planListEl.querySelectorAll("li")];
+const planListItemInfoEls = [...document.querySelectorAll(".plan-info")];
+const togglePlanTermBtnEl = document.getElementById("togglePlanTermBtn");
+const [monthlyTextEl, yearlyTextEl] = togglePlanTermBtnEl
+  .closest("div")
+  .querySelectorAll(".term-option");
+const cricleEl = document.getElementById("circle");
+
+const goBackBtnEls = document.querySelectorAll(".go-back-btn");
+
 // FUNCTIONS
+
+// DATA
+const plansPrice = {
+  arcade: {
+    monthly: 9,
+    yearly: 90,
+  },
+  advanced: {
+    monthly: 12,
+    yearly: 120,
+  },
+  pro: {
+    monthly: 15,
+    yearly: 150,
+  },
+};
 
 class App {
   step = 1;
   planTerm = "yearly";
+  selectedPlan = {
+    type: "",
+    term: "",
+    price: "",
+  };
   constructor() {
     // ATTACH EVENT HANDLERS
+
     // Submit Form
-    submitFormBtnEl.addEventListener(
+    submitFormBtnEl.addEventListener("click", this.submitForm.bind(this));
+
+    // Change Plan Term
+    togglePlanTermBtnEl.addEventListener(
       "click",
-      function () {
-        const inputEls = [...formEl.querySelectorAll("input")];
-        const inputVals = inputEls.map((inp) => inp.value);
-        let isFromValid = true;
-
-        // Clear all input errors
-        inputEls.forEach((inp) => this.removeErrorInput(inp));
-
-        // Check if the inputs value are formatted or not
-        if (!this.checkEmail(inputVals[1])) {
-          this.rederErrorInput(inputEls[1], "Invalid email");
-          isFromValid = false;
-        }
-
-        // Check if it is number
-        if (!this.checkPhone(inputVals[2])) {
-          this.rederErrorInput(inputEls[2], "Should only contain number");
-          isFromValid = false;
-        }
-
-        // Check if inputs are empty or not
-        inputVals.forEach((val, i) => {
-          if (val === "") {
-            this.rederErrorInput(inputEls[i], "This field is required");
-            isFromValid = false;
-          }
-        });
-
-        if (isFromValid) {
-          // Go to next step
-          this.GoToStep(2);
-        }
-      }.bind(this)
-    );
-
-    // Change Plan Time
-    changePlanTermBtnEl.addEventListener(
-      "click",
-      function () {
-        const cricle = document.getElementById("circle");
-        const [monthlyTextEl, yearlyTextEl] = changePlanTermBtnEl
-          .closest("div")
-          .querySelectorAll("small");
-        const planListItemInfoEls = [...planListEl.querySelectorAll("li div")];
-
-        console.log(monthlyTextEl, yearlyTextEl);
-
-        // Switch to other term option
-        this.planTerm = this.planTerm === "yearly" ? "monthly" : "yearly";
-
-        if (this.planTerm === "yearly") {
-          cricle.classList.remove("translate-x-[-.53rem]");
-          cricle.classList.add("translate-x-[.53rem]");
-
-          monthlyTextEl.classList.remove("text-marineBlue");
-          yearlyTextEl.classList.add("text-marineBlue");
-
-          planListItemInfoEls.forEach((item) => {
-            item.querySelector("span:nth-child(3)").style.display = "inline";
-            item
-              .querySelector("span:nth-child(2)")
-              .querySelector("span").textContent =
-              +item.querySelector("span:nth-child(2)").querySelector("span")
-                .textContent * 10;
-          });
-        }
-        if (this.planTerm === "monthly") {
-          cricle.classList.remove("translate-x-[.53rem]");
-          cricle.classList.add("translate-x-[-.53rem]");
-
-          monthlyTextEl.classList.add("text-marineBlue");
-          yearlyTextEl.classList.remove("text-marineBlue");
-
-          planListItemInfoEls.forEach((item) => {
-            item.querySelector("span:nth-child(3)").style.display = "none";
-            item
-              .querySelector("span:nth-child(2)")
-              .querySelector("span").textContent =
-              +item.querySelector("span:nth-child(2)").querySelector("span")
-                .textContent / 10;
-          });
-        }
-      }.bind(this)
+      this.togglePlanTerm.bind(this)
     );
 
     // Selecet Plan
-    planListEl.addEventListener("click", function (e) {
-      const planEl = e.target.closest("li");
-      const planListItemEls = planListEl.querySelectorAll("li");
-      if (!planEl) return;
-      planListItemEls.forEach((plan) =>
-        plan.classList.remove("plan-item-active")
-      );
-      planEl.classList.add("plan-item-active");
+    planListEl.addEventListener("click", this.selectPlan);
+
+    // Submit Plan
+    planNextStepBtnEl.addEventListener("click", this.submitPlan.bind(this));
+
+    // Go Previous Step
+    goBackBtnEls.forEach((el) =>
+      el.addEventListener("click", this.goToPrevStep.bind(this))
+    );
+  }
+
+  submitForm() {
+    const inputVals = formInputEls.map((inp) => inp.value);
+    let isFromValid = true;
+
+    // Clear all input errors
+    this.clearInputErrors(formInputEls);
+
+    // Check if the email input value is formatted or not
+    if (!this.checkEmail(inputVals[1])) {
+      this.rederErrorInput(formInputEls[1], "Invalid email");
+      isFromValid = false;
+    }
+
+    // Check if it is number
+    if (!this.checkPhone(inputVals[2])) {
+      this.rederErrorInput(formInputEls[2], "Should only contain number");
+      isFromValid = false;
+    }
+
+    // Check if inputs are empty or not
+    inputVals.forEach((val, i) => {
+      if (val === "") {
+        this.rederErrorInput(formInputEls[i], "This field is required");
+        isFromValid = false;
+      }
     });
 
-    // Go to 3rd step
-    planNextStepBtnEl.addEventListener("click" , function(){
-      this.GoToStep(3)
-    }.bind(this))
+    if (isFromValid) {
+      // Go to next step
+      this.goToStep(2);
+    }
+  }
 
-    
+  clearInputErrors(inputs) {
+    inputs.forEach((inp) => this.removeErrorInput(inp));
+  }
 
+  togglePlanTerm() {
+    // Switch to other term option
+    this.planTerm = this.planTerm === "yearly" ? "monthly" : "yearly";
+
+    this.switchCirclePosition();
+    this.activateTermOptionText();
+    this.changeEachPlanInfo();
+  }
+
+  // Switch circle position based on plan term
+  switchCirclePosition() {
+    cricleEl.classList.remove(
+      `translate-x-[${this.planTerm === "yearly" ? "-" : ""}.53rem]`
+    );
+    cricleEl.classList.add(
+      `translate-x-[${this.planTerm === "yearly" ? "" : "-"}.53rem]`
+    );
+  }
+  // Activate term option text based on plan term
+  activateTermOptionText() {
+    if (this.planTerm === "monthly") {
+      monthlyTextEl.classList.add("text-marineBlue");
+      yearlyTextEl.classList.remove("text-marineBlue");
+    }
+    if (this.planTerm === "yearly") {
+      monthlyTextEl.classList.remove("text-marineBlue");
+      yearlyTextEl.classList.add("text-marineBlue");
+    }
+  }
+  // Change each plan info based on plan term
+  changeEachPlanInfo() {
+    planListItemInfoEls.forEach((item) => {
+      item.querySelector("span:nth-child(3)").style.display =
+        this.planTerm === "yearly" ? "inline" : "none";
+      item.querySelector("span:nth-child(2)").innerHTML = `
+        $<span>${
+          this.planTerm === "yearly"
+            ? +item.querySelector("span:nth-child(2)").querySelector("span")
+                .textContent * 10
+            : +item.querySelector("span:nth-child(2)").querySelector("span")
+                .textContent / 10
+        }</span>/${this.planTerm === "yearly" ? "yr" : "mo"}
+        `;
+    });
+  }
+
+  selectPlan(e) {
+    const planEl = e.target.closest("li");
+
+    if (!planEl) return;
+    planListItemEls.forEach((plan) =>
+      plan.classList.remove("plan-item-active")
+    );
+    planEl.classList.add("plan-item-active");
+  }
+
+  submitPlan() {
+    const selectedPlanEl = document.querySelector(".plan-item-active");
+    const selectedPlanType = selectedPlanEl.dataset.type;
+    const selectedPlanPrice =
+      plansPrice[`${selectedPlanType}`][`${this.planTerm}`];
+
+    this.selectedPlan = {
+      type: selectedPlanType,
+      term: this.planTerm,
+      price: selectedPlanPrice,
+    };
+
+    console.log(this.selectedPlan);
+    this.goToStep(3);
   }
 
   rederErrorInput(input, msg) {
@@ -154,7 +211,11 @@ class App {
     return true;
   }
 
-  GoToStep(step) {
+  goToPrevStep() {
+    this.goToStep(this.step - 1);
+  }
+
+  goToStep(step) {
     const prevStepNumEl = stpesListEl.querySelector(
       `[data-step="${this.step}"]`
     );
@@ -164,7 +225,6 @@ class App {
       `section[data-step="${this.step}"]`
     );
     prevStepSecEl.classList.add("hidden");
-    console.log(prevStepSecEl);
 
     this.step = step;
 
@@ -172,7 +232,6 @@ class App {
       `section[data-step="${this.step}"]`
     );
     nextStepSecEl.classList.remove("hidden");
-    console.log(nextStepSecEl);
 
     const nextStepNumEl = stpesListEl.querySelector(
       `[data-step="${this.step}"]`

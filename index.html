@@ -81,7 +81,7 @@
       <!-- STEP 1 FORM -->
       <section
         data-step="1"
-        class=" -mt-[5rem] flex flex-col h-full sm:h-auto justify-between top-20 sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-20 lg:py-10 xl:px-[7.8rem] xl:py-12"
+        class="-mt-[5rem] flex flex-col h-full sm:h-auto justify-between top-20 sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-20 lg:py-10 xl:px-[7.8rem] xl:py-12"
       >
         <!-- HEADIING & FORM -->
         <section class="bg-white rounded-lg px-6 py-7 m-[.9rem] sm:m-0 sm:p-0">
@@ -194,15 +194,16 @@
               <!-- PLAN -->
               <li
                 class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray hover:border-marineBlue lg:flex-col lg:gap-10 lg:flex-grow cursor-pointer justify-between plan-item-active"
+                data-type="arcade"
               >
                 <!-- ICON -->
                 <img src="src/images/icon-arcade.svg" alt="arcde-icon" />
                 <!-- INFO -->
-                <div class="flex flex-col">
+                <div class="flex flex-col plan-info">
                   <!-- NAME -->
                   <span class="font-bold">Arcade</span>
-                    <!-- PRICE -->
-                    <span class="text-coolGray">$<span>90</span>/yr</span>
+                  <!-- PRICE -->
+                  <span class="text-coolGray">$<span>90</span>/yr</span>
                   <!-- HOW MUCH FREE -->
                   <span class="text-[.8rem]">2 months free</span>
                 </div>
@@ -210,11 +211,12 @@
               <!-- PLAN -->
               <li
                 class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray hover:border-marineBlue lg:flex-col lg:gap-10 lg:flex-grow cursor-pointer justify-between"
+                data-type="advanced"
               >
                 <!-- ICON -->
                 <img src="src/images/icon-advanced.svg" alt="arcde-icon" />
                 <!-- INFO -->
-                <div class="flex flex-col">
+                <div class="flex flex-col plan-info">
                   <!-- NAME -->
                   <span class="font-bold">Advanced</span>
                   <!-- PRICE -->
@@ -226,11 +228,12 @@
               <!-- PLAN -->
               <li
                 class="border-[1px] text-marineBlue flex p-4 items-start gap-3 rounded-lg border-lightGray hover:border-marineBlue lg:flex-col lg:gap-10 lg:flex-grow cursor-pointer justify-between"
+                data-type="pro"
               >
                 <!-- ICON -->
                 <img src="src/images/icon-pro.svg" alt="arcde-icon" />
                 <!-- INFO -->
-                <div class="flex flex-col">
+                <div class="flex flex-col plan-info">
                   <!-- NAME -->
                   <span class="font-bold"> Pro </span>
                   <!-- PRICE -->
@@ -244,11 +247,11 @@
             <div
               class="flex text-coolGray bg-magnolia p-2 justify-center gap-6 text-lg font-bold items-center rounded-md"
             >
-              <small>Monthly</small>
+              <small class="term-option">Monthly</small>
               <!-- TRIGER -->
               <span
                 class="w-[2.3rem] h-5 rounded-full flex justify-center items-center bg-marineBlue cursor-pointer"
-                id="changePlanTermBtn"
+                id="togglePlanTermBtn"
               >
                 <!-- CIRCLE -->
                 <span
@@ -256,7 +259,7 @@
                   id="circle"
                 ></span>
               </span>
-              <small class="text-marineBlue">Yearly</small>
+              <small class="term-option text-marineBlue">Yearly</small>
             </div>
           </div>
         </section>
@@ -264,7 +267,9 @@
         <div
           class="bg-white p-4 flex justify-between w-full text-sm lg:text-xl sm:w-auto sm:p-0"
         >
-          <button class="text-coolGray font-bold hover:text-marineBlue">
+          <button
+            class="text-coolGray font-bold hover:text-marineBlue go-back-btn"
+          >
             Go Back
           </button>
           <button
@@ -408,7 +413,9 @@
         <div
           class="bg-white p-4 flex justify-between w-full text-sm lg:text-xl sm:w-auto sm:p-0"
         >
-          <button class="text-coolGray hover:text-marineBlue font-bold">
+          <button
+            class="text-coolGray hover:text-marineBlue font-bold go-back-btn"
+          >
             Go Back
           </button>
           <button
@@ -489,7 +496,9 @@
         <div
           class="bg-white p-4 flex justify-between w-full text-sm lg:text-xl sm:w-auto sm:p-0"
         >
-          <button class="text-coolGray hover:text-marineBlue font-bold">
+          <button
+            class="text-coolGray hover:text-marineBlue font-bold go-back-btn"
+          >
             Go Back
           </button>
           <button

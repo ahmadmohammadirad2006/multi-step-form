@@ -81,7 +81,7 @@
       <!-- STEP 1 FORM -->
       <section
         data-step="1"
-        class="-mt-[5rem] flex flex-col h-full sm:h-auto justify-between top-20 sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-20 lg:py-10 xl:px-[7.8rem] xl:py-12"
+        class=" -mt-[5rem] flex flex-col h-full sm:h-auto justify-between top-20 sm:-mt-0 sm:w-full sm:py-2 sm:px-6 md:py-4 md:px-8 lg:px-20 lg:py-10 xl:px-[7.8rem] xl:py-12"
       >
         <!-- HEADIING & FORM -->
         <section class="bg-white rounded-lg px-6 py-7 m-[.9rem] sm:m-0 sm:p-0">
@@ -203,7 +203,7 @@
                   <!-- NAME -->
                   <span class="font-bold">Arcade</span>
                   <!-- PRICE -->
-                  <span class="text-coolGray">$<span>90</span>/yr</span>
+                  <span class="text-coolGray plan-price-info">$90/yr</span>
                   <!-- HOW MUCH FREE -->
                   <span class="text-[.8rem]">2 months free</span>
                 </div>
@@ -220,7 +220,7 @@
                   <!-- NAME -->
                   <span class="font-bold">Advanced</span>
                   <!-- PRICE -->
-                  <span class="text-coolGray">$<span>120</span>/yr</span>
+                  <span class="text-coolGray plan-price-info">$120/yr</span>
                   <!-- HOW MUCH FREE -->
                   <span class="text-[.8rem]">2 months free</span>
                 </div>
@@ -237,7 +237,7 @@
                   <!-- NAME -->
                   <span class="font-bold"> Pro </span>
                   <!-- PRICE -->
-                  <span class="text-coolGray">$<span>150</span>/yr</span>
+                  <span class="text-coolGray plan-price-info">$150/yr</span>
                   <!-- HOW MUCH FREE -->
                   <span class="text-[.8rem]">2 months free</span>
                 </div>
@@ -251,11 +251,11 @@
               <!-- TRIGER -->
               <span
                 class="w-[2.3rem] h-5 rounded-full flex justify-center items-center bg-marineBlue cursor-pointer"
-                id="togglePlanTermBtn"
+                id="toggleTermBtn"
               >
                 <!-- CIRCLE -->
                 <span
-                  class="bg-white size-[.765rem] rounded-full translate-y-[-.01rem] translate-x-[.53rem] transition-all"
+                  class="bg-white size-[.765rem] rounded-full translate-y-[-.01rem] yearly-side  transition-all"
                   id="circle"
                 ></span>
               </span>
@@ -299,16 +299,18 @@
             Add-ons help enhance your gaming experience.
           </p>
 
-          <ul class="flex flex-col gap-3 mt-5 lg:mt-10 lg:gap-4">
+          <ul class="flex flex-col gap-3 mt-5 lg:mt-10 lg:gap-4" id="addOnsList">
             <li
-              class="border-[1px] border-lightGray rounded-lg flex p-3 gap-3 items-center lg:p-5 lg:gap-6 ons-item-active"
+              class="border-[1px] border-lightGray rounded-lg flex p-3 gap-3 items-center lg:p-5 lg:gap-6 cursor-pointer "
+              data-type="onlineService"
+              
             >
               <!-- CHECKBOX -->
               <label>
                 <!-- INPUT -->
                 <input
                   type="checkbox"
-                  checked
+                  
                   class="opacity-0 w-0 h-0 absolute cursor-pointer peer"
                 />
                 <!-- CHECKMARK -->
@@ -332,19 +334,22 @@
               <!-- PRICE PER YEAR -->
 
               <span
-                class="text-purplishBlue text-[.775rem] leading-5 ml-auto lg:text-base"
+                class="text-purplishBlue text-[.775rem] leading-5 ml-auto lg:text-base add-ons-price-info "
                 >+$10/yr</span
               >
+
+
             </li>
             <li
-              class="border-[1px] border-lightGray rounded-lg flex p-3 gap-3 items-center lg:p-5 lg:gap-6 ons-item-active"
-            >
+              class="border-[1px] border-lightGray rounded-lg flex p-3 gap-3 items-center lg:p-5 lg:gap-6 cursor-pointer "
+              data-type="largerStorage"
+              >
               <!-- CHECKBOX -->
               <label>
                 <!-- INPUT -->
                 <input
                   type="checkbox"
-                  checked
+                  
                   class="opacity-0 w-0 h-0 absolute cursor-pointer peer"
                 />
                 <!-- CHECKMARK -->
@@ -368,13 +373,14 @@
               <!-- PRICE PER YEAR -->
 
               <span
-                class="text-purplishBlue text-[.775rem] leading-5 ml-auto lg:text-base"
+                class="text-purplishBlue text-[.775rem] leading-5 ml-auto lg:text-base add-ons-price-info"
                 >+$20/yr</span
               >
             </li>
             <li
-              class="border-[1px] border-lightGray rounded-lg flex p-3 gap-3 items-center lg:p-5 lg:gap-6"
-            >
+              class="border-[1px] border-lightGray rounded-lg flex p-3 gap-3 items-center lg:p-5 lg:gap-6 cursor-pointer"
+              data-type="customizableProfile"
+              >
               <!-- CHECKBOX -->
               <label>
                 <!-- INPUT -->
@@ -403,7 +409,7 @@
               <!-- PRICE PER YEAR -->
 
               <span
-                class="text-purplishBlue text-[.775rem] leading-5 ml-auto lg:text-base"
+                class="text-purplishBlue text-[.775rem] leading-5 ml-auto lg:text-base add-ons-price-info"
                 >+$20/yr</span
               >
             </li>
@@ -421,6 +427,7 @@
           <button
             class="bg-marineBlue hover:opacity-90 px-4 py-3 rounded sm:px-4 lg:px-6 lg:rounded-lg"
             type="submit"
+            id="addOnsNextStepBtn"
           >
             Next Step
           </button>

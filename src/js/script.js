@@ -8,15 +8,20 @@ const formInputEls = [...formEl.querySelectorAll("input")];
 const submitFormBtnEl = document.getElementById("submitFormBtn");
 
 const planListEl = document.getElementById("planList");
+const planItemEls = [...planListEl.querySelectorAll("li")];
 const planNextStepBtnEl = document.getElementById("planNextStepBtn");
-const planListItemEls = [...planListEl.querySelectorAll("li")];
-const planListItemInfoEls = [...document.querySelectorAll(".plan-info")];
-const togglePlanTermBtnEl = document.getElementById("togglePlanTermBtn");
-const [monthlyTextEl, yearlyTextEl] = togglePlanTermBtnEl
+const planInfoEls = [...document.querySelectorAll(".plan-info")];
+
+const addOnsListEl = document.getElementById("addOnsList");
+const addOnsItemEls = [...addOnsListEl.querySelectorAll("li")];
+const addOnsNextStepBtnEl = document.getElementById("addOnsNextStepBtn");
+
+
+const toggleTermBtnEl = document.getElementById("toggleTermBtn");
+const [monthlyTextEl, yearlyTextEl] = toggleTermBtnEl
   .closest("div")
   .querySelectorAll(".term-option");
 const cricleEl = document.getElementById("circle");
-
 const goBackBtnEls = document.querySelectorAll(".go-back-btn");
 
 // FUNCTIONS
@@ -37,31 +42,49 @@ const plansPrice = {
   },
 };
 
+const addOnsPrice = {
+  onlineService: {
+    monthly: 1,
+    yearly: 10,
+  },
+  largerStorage: {
+    monthly: 2,
+    yearly: 20,
+  },
+  customizableProfile: {
+    monthly: 2,
+    yearly: 20,
+  },
+};
+
 class App {
   step = 1;
-  planTerm = "yearly";
+  term = "yearly";
   selectedPlan = {
     type: "",
     term: "",
     price: "",
   };
+  selectedAddOns = [];
   constructor() {
     // ATTACH EVENT HANDLERS
 
     // Submit Form
     submitFormBtnEl.addEventListener("click", this.submitForm.bind(this));
 
-    // Change Plan Term
-    togglePlanTermBtnEl.addEventListener(
-      "click",
-      this.togglePlanTerm.bind(this)
-    );
+    // Change Term
+    toggleTermBtnEl.addEventListener("click", this.toggleTerm.bind(this));
 
     // Selecet Plan
     planListEl.addEventListener("click", this.selectPlan);
 
     // Submit Plan
     planNextStepBtnEl.addEventListener("click", this.submitPlan.bind(this));
+
+    // Select add-ons
+    addOnsListEl.addEventListener("click", this.selectAddOns);
+    // Submit add-ons
+    addOnsNextStepBtnEl.addEventListener("click" , this.submitAddOns.bind(this))
 
     // Go Previous Step
     goBackBtnEls.forEach((el) =>
@@ -106,49 +129,58 @@ class App {
     inputs.forEach((inp) => this.removeErrorInput(inp));
   }
 
-  togglePlanTerm() {
+  toggleTerm() {
     // Switch to other term option
-    this.planTerm = this.planTerm === "yearly" ? "monthly" : "yearly";
+    this.term = this.term === "yearly" ? "monthly" : "yearly";
 
     this.switchCirclePosition();
     this.activateTermOptionText();
     this.changeEachPlanInfo();
+    this.changeEachAddOnsInfo();
   }
 
   // Switch circle position based on plan term
   switchCirclePosition() {
     cricleEl.classList.remove(
-      `translate-x-[${this.planTerm === "yearly" ? "-" : ""}.53rem]`
+      `${this.term === "yearly" ? "monthly-side" : "yearly-side"}`
     );
     cricleEl.classList.add(
-      `translate-x-[${this.planTerm === "yearly" ? "" : "-"}.53rem]`
+      `${this.term === "yearly" ? "yearly-side" : "monthly-side"}`
     );
   }
   // Activate term option text based on plan term
   activateTermOptionText() {
-    if (this.planTerm === "monthly") {
+    if (this.term === "monthly") {
       monthlyTextEl.classList.add("text-marineBlue");
       yearlyTextEl.classList.remove("text-marineBlue");
     }
-    if (this.planTerm === "yearly") {
+    if (this.term === "yearly") {
       monthlyTextEl.classList.remove("text-marineBlue");
       yearlyTextEl.classList.add("text-marineBlue");
     }
   }
   // Change each plan info based on plan term
   changeEachPlanInfo() {
-    planListItemInfoEls.forEach((item) => {
-      item.querySelector("span:nth-child(3)").style.display =
-        this.planTerm === "yearly" ? "inline" : "none";
-      item.querySelector("span:nth-child(2)").innerHTML = `
-        $<span>${
-          this.planTerm === "yearly"
-            ? +item.querySelector("span:nth-child(2)").querySelector("span")
-                .textContent * 10
-            : +item.querySelector("span:nth-child(2)").querySelector("span")
-                .textContent / 10
-        }</span>/${this.planTerm === "yearly" ? "yr" : "mo"}
-        `;
+    planItemEls.forEach((item) => {
+      const planType = item.dataset.type;
+      const planInfo = item.querySelector(".plan-info");
+
+      planInfo.querySelector("span:nth-child(3)").style.display =
+        this.term === "yearly" ? "inline" : "none";
+
+      planInfo.querySelector(".plan-price-info").innerHTML = `$${
+        plansPrice[`${planType}`][`${this.term}`]
+      }/${this.term === "yearly" ? "yr" : "mo"}`;
+    });
+  }
+
+  changeEachAddOnsInfo() {
+    addOnsItemEls.forEach((el) => {
+      const addOnsType = el.dataset.type;
+      const addOnsPriceInfoEl = el.querySelector(".add-ons-price-info");
+      addOnsPriceInfoEl.innerHTML = `+$${
+        addOnsPrice[`${addOnsType}`][`${this.term}`]
+      }/${this.term === "yearly" ? "yr" : "mo"}`;
     });
   }
 
@@ -156,26 +188,50 @@ class App {
     const planEl = e.target.closest("li");
 
     if (!planEl) return;
-    planListItemEls.forEach((plan) =>
-      plan.classList.remove("plan-item-active")
-    );
+    planItemEls.forEach((plan) => plan.classList.remove("plan-item-active"));
     planEl.classList.add("plan-item-active");
   }
 
   submitPlan() {
     const selectedPlanEl = document.querySelector(".plan-item-active");
     const selectedPlanType = selectedPlanEl.dataset.type;
-    const selectedPlanPrice =
-      plansPrice[`${selectedPlanType}`][`${this.planTerm}`];
+    const selectedPlanPrice = plansPrice[`${selectedPlanType}`][`${this.term}`];
 
     this.selectedPlan = {
       type: selectedPlanType,
-      term: this.planTerm,
+      term: this.term,
       price: selectedPlanPrice,
     };
 
     console.log(this.selectedPlan);
     this.goToStep(3);
+  }
+
+  selectAddOns(e) {
+    const addOnsEl = e.target.closest("li");
+    if (!addOnsEl) return;
+    addOnsEl.classList.toggle("ons-item-active");
+    const checkboxEl = addOnsEl.querySelector("input");
+    checkboxEl.checked = !checkboxEl.checked;
+  }
+
+  submitAddOns() {
+    const selectedAddOnsEls = [...addOnsListEl.querySelectorAll(".ons-item-active")];
+
+    this.selectedAddOns = selectedAddOnsEls.map((el) => {
+      const selectedAddOnsType = el.dataset.type;
+      const selectedAddOnsPrice =
+        addOnsPrice[`${selectedAddOnsType}`][`${this.term}`];
+
+      return {
+        type: selectedAddOnsType,
+        price: selectedAddOnsPrice,
+        term: this.term,
+      };
+    });
+
+    this.goToStep(4);
+    console.log(this.selectedAddOns);
   }
 
   rederErrorInput(input, msg) {

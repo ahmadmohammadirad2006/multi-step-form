@@ -9,5 +9,15 @@
 
 .plan-item-active,
 .ons-item-active {
-  @apply bg-alabaster border-marineBlue cursor-auto;
+  @apply bg-alabaster border-marineBlue cursor-pointer;
+}
+.plan-item-active {
+  @apply cursor-auto;
+}
+
+.yearly-side{
+  @apply translate-x-[.53rem];
+}
+.monthly-side{
+  @apply translate-x-[-.53rem];
 }

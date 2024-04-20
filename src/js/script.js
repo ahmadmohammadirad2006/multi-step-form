@@ -13,10 +13,15 @@ const planNextStepBtnEl = document.getElementById("planNextStepBtn");
 const planInfoEls = [...document.querySelectorAll(".plan-info")];
 
 const addOnsListEl = document.getElementById("addOnsList");
-const labelCheckboxEls = addOnsListEl.querySelectorAll("label")
+const labelCheckboxEls = addOnsListEl.querySelectorAll("label");
 const addOnsItemEls = [...addOnsListEl.querySelectorAll("li")];
 const addOnsNextStepBtnEl = document.getElementById("addOnsNextStepBtn");
 
+const finalPlanNameEl = document.getElementById("finalPlanName");
+const finalPlanPriceEl = document.getElementById("finalPlanPrice");
+const finalAddOnsListEl = document.getElementById("finalAddOnsList");
+const finalTotalInfoEl = document.getElementById("finalTotalInfo");
+const finalTotalPriceEL = document.getElementById("finalTotalPrice");
 
 const toggleTermBtnEl = document.getElementById("toggleTermBtn");
 const [monthlyTextEl, yearlyTextEl] = toggleTermBtnEl
@@ -26,6 +31,20 @@ const cricleEl = document.getElementById("circle");
 const goBackBtnEls = document.querySelectorAll(".go-back-btn");
 
 // FUNCTIONS
+
+const capitalize = function (str) {
+  const lowerCase = str.toLowerCase();
+  const firstLetterUpperCase = lowerCase[0].toUpperCase();
+  const capitalized = firstLetterUpperCase + lowerCase.slice(1);
+  return capitalized;
+};
+const camelCaseToLowerCase = function (str) {
+  return str.split("").reduce((result, char, i) => {
+    if (char === char.toUpperCase() && i !== 0) return result + " " + char.toLowerCase();
+    else return result + char;
+  });
+};
+
 
 // DATA
 const plansPrice = {
@@ -82,17 +101,18 @@ class App {
     // Submit Plan
     planNextStepBtnEl.addEventListener("click", this.submitPlan.bind(this));
 
-    // Select add-ons
-    labelCheckboxEls.forEach(el => {
-        el.addEventListener("click", function(e){
-          e.preventDefault()
-        })
-    })
+    // Prevent default behavior of checkbox labels when clicked
+    labelCheckboxEls.forEach((el) => {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+      });
+    });
 
+    // Select add-ons
     addOnsListEl.addEventListener("click", this.selectAddOns);
-    
+
     // Submit add-ons
-    addOnsNextStepBtnEl.addEventListener("click" , this.submitAddOns.bind(this))
+    addOnsNextStepBtnEl.addEventListener("click", this.submitAddOns.bind(this));
 
     // Go Previous Step
     goBackBtnEls.forEach((el) =>
@@ -207,7 +227,6 @@ class App {
 
     this.selectedPlan = {
       type: selectedPlanType,
-      term: this.term,
       price: selectedPlanPrice,
     };
 
@@ -224,7 +243,9 @@ class App {
   }
 
   submitAddOns() {
-    const selectedAddOnsEls = [...addOnsListEl.querySelectorAll(".ons-item-active")];
+    const selectedAddOnsEls = [
+      ...addOnsListEl.querySelectorAll(".ons-item-active"),
+    ];
 
     this.selectedAddOns = selectedAddOnsEls.map((el) => {
       const selectedAddOnsType = el.dataset.type;
@@ -234,12 +255,52 @@ class App {
       return {
         type: selectedAddOnsType,
         price: selectedAddOnsPrice,
-        term: this.term,
       };
     });
 
+    this.updateFinishingUpSection();
     this.goToStep(4);
     console.log(this.selectedAddOns);
+  }
+
+  updateFinishingUpSection() {
+    // Set Term Abbreviation
+    const termAbbreviation = this.term === "yearly" ? "yr" : "mo";
+    // Update final plan
+    finalPlanNameEl.textContent = `${capitalize(
+      this.selectedPlan.type
+    )} (${capitalize(this.term)})`;
+    finalPlanPriceEl.textContent = `$${this.selectedPlan.price}/${termAbbreviation}`;
+
+    // Update final add-ons list
+    finalAddOnsListEl.innerHTML = "";
+    const addOnsItemsMarkup = this.generateAddOnsItemsMarkup();
+    finalAddOnsListEl.innerHTML = addOnsItemsMarkup;
+    // Calculate and Update total
+    const total =
+      this.selectedPlan.price +
+      this.selectedAddOns.reduce((acc, entry) => entry.price + acc, 0);
+
+    finalTotalInfoEl.textContent = `Total (per ${
+      this.term === "yearly" ? "year" : "month"
+    })`;
+    finalTotalPriceEL.textContent = `$${total}/${termAbbreviation}`;
+  }
+
+  generateAddOnsItemsMarkup() {
+    return this.selectedAddOns
+      .map(
+        (entry) => `
+    <li class="flex justify-between">
+      <!-- NAME -->
+      <span>${capitalize(camelCaseToLowerCase(entry.type))}</span>
+      <!-- PRICE -->
+      <span class="text-marineBlue">+$${entry.price}/${
+          this.term === "yearly" ? "yr" : "mo"
+        }</span>
+    </li>`
+      )
+      .join("");
   }
 
   rederErrorInput(input, msg) {

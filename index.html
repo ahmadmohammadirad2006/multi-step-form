@@ -459,7 +459,7 @@
                 class="text-marineBlue font-bold flex justify-between items-center border-b-[1px] pb-3 border-b-lightGray lg:pb-6"
               >
                 <span class="flex flex-col">
-                  <span>Arcade(Yearly)</span>
+                  <span id="finalPlanName">Arcade(Yearly)</span>
                   <a
                     href="#"
                     class="underline text-coolGray font-light lg:text-sm"
@@ -467,11 +467,13 @@
                   >
                 </span>
                 <!-- PRICE -->
-                <span>$90/yr</span>
+                <span id="finalPlanPrice">$90/yr</span>
               </div>
 
               <!-- CHOSEN ADD-ONS -->
-              <ul class="text-coolGray flex flex-col gap-3">
+              <ul class="text-coolGray flex flex-col gap-3" id="finalAddOnsList">
+
+
                 <li class="flex justify-between">
                   <!-- NAME -->
                   <span>Online Service</span>
@@ -485,14 +487,17 @@
                   <!-- PRICE -->
                   <span class="text-marineBlue">+$20/yr</span>
                 </li>
+
+
               </ul>
+
             </div>
 
             <!-- TOTAL -->
             <div class="px-5 flex justify-between">
-              <span class="text-coolGray">Total (per year)</span>
+              <span class="text-coolGray" id="finalTotalInfo">Total (per year)</span>
               <!-- TOTAL PRICE -->
-              <span class="text-purplishBlue font-bold text-base lg:text-xl"
+              <span class="text-purplishBlue font-bold text-base lg:text-xl" id="finalTotalPrice"
                 >$120/yr</span
               >
             </div>

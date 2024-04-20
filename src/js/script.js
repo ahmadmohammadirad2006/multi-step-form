@@ -13,6 +13,7 @@ const planNextStepBtnEl = document.getElementById("planNextStepBtn");
 const planInfoEls = [...document.querySelectorAll(".plan-info")];
 
 const addOnsListEl = document.getElementById("addOnsList");
+const labelCheckboxEls = addOnsListEl.querySelectorAll("label")
 const addOnsItemEls = [...addOnsListEl.querySelectorAll("li")];
 const addOnsNextStepBtnEl = document.getElementById("addOnsNextStepBtn");
 
@@ -82,7 +83,14 @@ class App {
     planNextStepBtnEl.addEventListener("click", this.submitPlan.bind(this));
 
     // Select add-ons
+    labelCheckboxEls.forEach(el => {
+        el.addEventListener("click", function(e){
+          e.preventDefault()
+        })
+    })
+
     addOnsListEl.addEventListener("click", this.selectAddOns);
+    
     // Submit add-ons
     addOnsNextStepBtnEl.addEventListener("click" , this.submitAddOns.bind(this))
 

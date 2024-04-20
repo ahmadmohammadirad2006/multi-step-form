@@ -32,6 +32,7 @@ const goBackBtnEls = document.querySelectorAll(".go-back-btn");
 
 // FUNCTIONS
 
+
 const capitalize = function (str) {
   const lowerCase = str.toLowerCase();
   const firstLetterUpperCase = lowerCase[0].toUpperCase();
@@ -40,49 +41,48 @@ const capitalize = function (str) {
 };
 const camelCaseToLowerCase = function (str) {
   return str.split("").reduce((result, char, i) => {
-    if (char === char.toUpperCase() && i !== 0) return result + " " + char.toLowerCase();
+    if (char === char.toUpperCase() && i !== 0)
+      return result + " " + char.toLowerCase();
     else return result + char;
   });
 };
 
-
 // DATA
 const plansPrice = {
   arcade: {
-    monthly: 9,
-    yearly: 90,
+    mo: 9,
+    yr: 90,
   },
   advanced: {
-    monthly: 12,
-    yearly: 120,
+    mo: 12,
+    yr: 120,
   },
   pro: {
-    monthly: 15,
-    yearly: 150,
+    mo: 15,
+    yr: 150,
   },
 };
 
 const addOnsPrice = {
   onlineService: {
-    monthly: 1,
-    yearly: 10,
+    mo: 1,
+    yr: 10,
   },
   largerStorage: {
-    monthly: 2,
-    yearly: 20,
+    mo: 2,
+    yr: 20,
   },
   customizableProfile: {
-    monthly: 2,
-    yearly: 20,
+    mo: 2,
+    yr: 20,
   },
 };
 
 class App {
   step = 1;
-  term = "yearly";
+  term = "yr";
   selectedPlan = {
     type: "",
-    term: "",
     price: "",
   };
   selectedAddOns = [];
@@ -159,7 +159,7 @@ class App {
 
   toggleTerm() {
     // Switch to other term option
-    this.term = this.term === "yearly" ? "monthly" : "yearly";
+    this.term = this.term === "yr" ? "mo" : "yr";
 
     this.switchCirclePosition();
     this.activateTermOptionText();
@@ -170,19 +170,19 @@ class App {
   // Switch circle position based on plan term
   switchCirclePosition() {
     cricleEl.classList.remove(
-      `${this.term === "yearly" ? "monthly-side" : "yearly-side"}`
+      `${this.term === "yr" ? "monthly-side" : "yearly-side"}`
     );
     cricleEl.classList.add(
-      `${this.term === "yearly" ? "yearly-side" : "monthly-side"}`
+      `${this.term === "yr" ? "yearly-side" : "monthly-side"}`
     );
   }
   // Activate term option text based on plan term
   activateTermOptionText() {
-    if (this.term === "monthly") {
+    if (this.term === "mo") {
       monthlyTextEl.classList.add("text-marineBlue");
       yearlyTextEl.classList.remove("text-marineBlue");
     }
-    if (this.term === "yearly") {
+    if (this.term === "yr") {
       monthlyTextEl.classList.remove("text-marineBlue");
       yearlyTextEl.classList.add("text-marineBlue");
     }
@@ -194,11 +194,11 @@ class App {
       const planInfo = item.querySelector(".plan-info");
 
       planInfo.querySelector("span:nth-child(3)").style.display =
-        this.term === "yearly" ? "inline" : "none";
+        this.term === "yr" ? "inline" : "none";
 
       planInfo.querySelector(".plan-price-info").innerHTML = `$${
         plansPrice[`${planType}`][`${this.term}`]
-      }/${this.term === "yearly" ? "yr" : "mo"}`;
+      }/${this.term}`;
     });
   }
 
@@ -208,7 +208,7 @@ class App {
       const addOnsPriceInfoEl = el.querySelector(".add-ons-price-info");
       addOnsPriceInfoEl.innerHTML = `+$${
         addOnsPrice[`${addOnsType}`][`${this.term}`]
-      }/${this.term === "yearly" ? "yr" : "mo"}`;
+      }/${this.term}`;
     });
   }
 
@@ -264,13 +264,11 @@ class App {
   }
 
   updateFinishingUpSection() {
-    // Set Term Abbreviation
-    const termAbbreviation = this.term === "yearly" ? "yr" : "mo";
     // Update final plan
     finalPlanNameEl.textContent = `${capitalize(
       this.selectedPlan.type
-    )} (${capitalize(this.term)})`;
-    finalPlanPriceEl.textContent = `$${this.selectedPlan.price}/${termAbbreviation}`;
+    )} (${this.term === "yr" ? "Yearly" : "Monthly"})`;
+    finalPlanPriceEl.textContent = `$${this.selectedPlan.price}/${this.term}`;
 
     // Update final add-ons list
     finalAddOnsListEl.innerHTML = "";
@@ -282,9 +280,9 @@ class App {
       this.selectedAddOns.reduce((acc, entry) => entry.price + acc, 0);
 
     finalTotalInfoEl.textContent = `Total (per ${
-      this.term === "yearly" ? "year" : "month"
+      this.term === "yr" ? "year" : "month"
     })`;
-    finalTotalPriceEL.textContent = `$${total}/${termAbbreviation}`;
+    finalTotalPriceEL.textContent = `$${total}/${this.term}`;
   }
 
   generateAddOnsItemsMarkup() {
@@ -295,9 +293,7 @@ class App {
       <!-- NAME -->
       <span>${capitalize(camelCaseToLowerCase(entry.type))}</span>
       <!-- PRICE -->
-      <span class="text-marineBlue">+$${entry.price}/${
-          this.term === "yearly" ? "yr" : "mo"
-        }</span>
+      <span class="text-marineBlue">+$${entry.price}/${this.term}</span>
     </li>`
       )
       .join("");

@@ -22,6 +22,8 @@ const finalPlanPriceEl = document.getElementById("finalPlanPrice");
 const finalAddOnsListEl = document.getElementById("finalAddOnsList");
 const finalTotalInfoEl = document.getElementById("finalTotalInfo");
 const finalTotalPriceEL = document.getElementById("finalTotalPrice");
+const changeBtnEl = document.getElementById("changeBtn");
+const confirmBtnEl = document.getElementById("confirmBtn");
 
 const toggleTermBtnEl = document.getElementById("toggleTermBtn");
 const [monthlyTextEl, yearlyTextEl] = toggleTermBtnEl
@@ -31,7 +33,6 @@ const cricleEl = document.getElementById("circle");
 const goBackBtnEls = document.querySelectorAll(".go-back-btn");
 
 // FUNCTIONS
-
 
 const capitalize = function (str) {
   const lowerCase = str.toLowerCase();
@@ -118,6 +119,12 @@ class App {
     goBackBtnEls.forEach((el) =>
       el.addEventListener("click", this.goToPrevStep.bind(this))
     );
+
+    // Go back to change selections
+    changeBtnEl.addEventListener("click", this.goBackToChange.bind(this));
+
+    // Confirm finishing up section
+    confirmBtnEl.addEventListener("click", this.confirmFinishingUp.bind(this));
   }
 
   submitForm() {
@@ -265,15 +272,14 @@ class App {
 
   updateFinishingUpSection() {
     // Update final plan
-    finalPlanNameEl.textContent = `${capitalize(
-      this.selectedPlan.type
-    )} (${this.term === "yr" ? "Yearly" : "Monthly"})`;
+    finalPlanNameEl.textContent = `${capitalize(this.selectedPlan.type)} (${
+      this.term === "yr" ? "Yearly" : "Monthly"
+    })`;
     finalPlanPriceEl.textContent = `$${this.selectedPlan.price}/${this.term}`;
 
     // Update final add-ons list
-    finalAddOnsListEl.innerHTML = "";
-    const addOnsItemsMarkup = this.generateAddOnsItemsMarkup();
-    finalAddOnsListEl.innerHTML = addOnsItemsMarkup;
+    const addOnsListMarkup = this.generateAddOnsListMarkup();
+    finalAddOnsListEl.innerHTML = addOnsListMarkup;
     // Calculate and Update total
     const total =
       this.selectedPlan.price +
@@ -285,18 +291,28 @@ class App {
     finalTotalPriceEL.textContent = `$${total}/${this.term}`;
   }
 
-  generateAddOnsItemsMarkup() {
+  generateAddOnsListMarkup() {
     return this.selectedAddOns
-      .map(
-        (entry) => `
-    <li class="flex justify-between">
-      <!-- NAME -->
-      <span>${capitalize(camelCaseToLowerCase(entry.type))}</span>
-      <!-- PRICE -->
-      <span class="text-marineBlue">+$${entry.price}/${this.term}</span>
-    </li>`
-      )
+      .map((entry) => this.generateAddOnsItemMarkup(entry))
       .join("");
+  }
+
+  generateAddOnsItemMarkup(addOns) {
+    return `
+<li class="flex justify-between">
+  <!-- NAME -->
+  <span>${capitalize(camelCaseToLowerCase(addOns.type))}</span>
+  <!-- PRICE -->
+  <span class="text-marineBlue">+$${addOns.price}/${this.term}</span>
+</li>`;
+  }
+
+  goBackToChange() {
+    this.goToStep(2);
+  }
+
+  confirmFinishingUp() {
+    this.goToStep(5);
   }
 
   rederErrorInput(input, msg) {
@@ -353,6 +369,8 @@ class App {
       `section[data-step="${this.step}"]`
     );
     nextStepSecEl.classList.remove("hidden");
+
+    if (step === 5) return;
 
     const nextStepNumEl = stpesListEl.querySelector(
       `[data-step="${this.step}"]`

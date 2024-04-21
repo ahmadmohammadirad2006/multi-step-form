@@ -822,7 +822,7 @@ video {
 }
 
 .bg-sidebar-mobile{
-  background-image: url('/src/images/bg-sidebar-mobile.svg');
+  background-image: url('../images/bg-sidebar-mobile.svg');
 }
 
 .bg-cover{
@@ -1171,7 +1171,7 @@ video {
   }
 
   .sm\:bg-sidebar-desktop{
-    background-image: url('/src/images/bg-sidebar-desktop.svg');
+    background-image: url('../images/bg-sidebar-desktop.svg');
   }
 
   .sm\:p-0{

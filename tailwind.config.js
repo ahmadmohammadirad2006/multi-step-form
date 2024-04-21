@@ -17,7 +17,7 @@ module.exports = {
       white: "hsl(0, 0%, 100%)",
     },
     container: {
-      center: false
+      center: false,
     },
 
     fontFamily: {
@@ -25,7 +25,12 @@ module.exports = {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "sidebar-desktop": "url('/src/images/bg-sidebar-desktop.svg')",
+        "sidebar-mobile": "url('/src/images/bg-sidebar-mobile.svg')",
+      },
+    },
   },
   plugins: [],
 };

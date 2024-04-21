@@ -821,7 +821,7 @@ video {
   background-color: hsl(0 0% 100% / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\'\/src\/images\/bg-sidebar-mobile\.svg\'\)\]{
+.bg-sidebar-mobile{
   background-image: url('/src/images/bg-sidebar-mobile.svg');
 }
 
@@ -1170,7 +1170,7 @@ video {
     background-color: hsl(0 0% 100% / var(--tw-bg-opacity));
   }
 
-  .sm\:bg-\[url\(\'\/src\/images\/bg-sidebar-desktop\.svg\'\)\]{
+  .sm\:bg-sidebar-desktop{
     background-image: url('/src/images/bg-sidebar-desktop.svg');
   }
 

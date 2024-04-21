@@ -1215,6 +1215,10 @@ video {
     width: 5rem;
   }
 
+  .md\:justify-between{
+    justify-content: space-between;
+  }
+
   .md\:gap-5{
     gap: 1.25rem;
   }
@@ -1262,6 +1266,10 @@ video {
 
   .lg\:flex-col{
     flex-direction: column;
+  }
+
+  .lg\:justify-between{
+    justify-content: space-between;
   }
 
   .lg\:gap-10{
